@@ -1,0 +1,1 @@
+﻿SELECT U.[Name], P.[Password] FROM [User] AS U, [Employee] AS E, [Password] AS P WHERE U.UserID = E.EmpID AND P.[EmpID] = E.EmpID
