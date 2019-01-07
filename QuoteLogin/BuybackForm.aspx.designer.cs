@@ -49,6 +49,24 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Panel AdminPanel;
         
         /// <summary>
+        /// PresetDeviceDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PresetDeviceDropdown;
+        
+        /// <summary>
+        /// AdminPageButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AdminPageButton;
+        
+        /// <summary>
         /// PresetDeviceDataSource control.
         /// </summary>
         /// <remarks>
@@ -211,6 +229,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.CheckBoxList LiquidCheckl;
         
         /// <summary>
+        /// BaseValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator BaseValid;
+        
+        /// <summary>
         /// BaseText control.
         /// </summary>
         /// <remarks>
@@ -218,6 +245,15 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox BaseText;
+        
+        /// <summary>
+        /// BuybackMarkdownDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource BuybackMarkdownDataSource;
         
         /// <summary>
         /// CalcButton control.

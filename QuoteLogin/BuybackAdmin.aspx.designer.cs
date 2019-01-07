@@ -31,6 +31,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Panel PresetDevicePanel;
         
         /// <summary>
+        /// PresetDeviceDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PresetDeviceDropdown;
+        
+        /// <summary>
         /// AdminNameText control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.TextBox AdminNameText;
         
         /// <summary>
+        /// AdminBasePriceValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator AdminBasePriceValid;
+        
+        /// <summary>
         /// AdminBasePriceText control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox AdminBasePriceText;
+        
+        /// <summary>
+        /// DeviceTypeValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DeviceTypeValid;
         
         /// <summary>
         /// AdminDeviceTypeDropdown control.
@@ -76,6 +103,60 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.SqlDataSource PremadeDeviceDataSource;
         
         /// <summary>
+        /// DeviceTypePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel DeviceTypePanel;
+        
+        /// <summary>
+        /// EditDeviceTypeDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EditDeviceTypeDropdown;
+        
+        /// <summary>
+        /// DeviceNameValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DeviceNameValid;
+        
+        /// <summary>
+        /// DeviceNameText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DeviceNameText;
+        
+        /// <summary>
+        /// SubmitDeviceTypeButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SubmitDeviceTypeButton;
+        
+        /// <summary>
+        /// DeviceCategoryDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DeviceCategoryDataSource;
+        
+        /// <summary>
         /// ChecklistEditPanel control.
         /// </summary>
         /// <remarks>
@@ -83,5 +164,185 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel ChecklistEditPanel;
+        
+        /// <summary>
+        /// AndroidTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table AndroidTable;
+        
+        /// <summary>
+        /// GmailNoValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator GmailNoValid;
+        
+        /// <summary>
+        /// GmailNoText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox GmailNoText;
+        
+        /// <summary>
+        /// iPhoneTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table iPhoneTable;
+        
+        /// <summary>
+        /// iPhoneNoValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator iPhoneNoValid;
+        
+        /// <summary>
+        /// iPhoneNoText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox iPhoneNoText;
+        
+        /// <summary>
+        /// BasicDeviceTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table BasicDeviceTable;
+        
+        /// <summary>
+        /// PowerNoValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator PowerNoValid;
+        
+        /// <summary>
+        /// PowerNoText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PowerNoText;
+        
+        /// <summary>
+        /// ClearScuffValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ClearScuffValid;
+        
+        /// <summary>
+        /// ClearScuffText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ClearScuffText;
+        
+        /// <summary>
+        /// BarelyScuffValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator BarelyScuffValid;
+        
+        /// <summary>
+        /// BarelyScuffText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox BarelyScuffText;
+        
+        /// <summary>
+        /// LiquidYesValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator LiquidYesValid;
+        
+        /// <summary>
+        /// LiquidYesText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LiquidYesText;
+        
+        /// <summary>
+        /// ScreenCrackYesValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ScreenCrackYesValid;
+        
+        /// <summary>
+        /// ScreenCrackYesText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ScreenCrackYesText;
+        
+        /// <summary>
+        /// ChecklistEditButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ChecklistEditButton;
+        
+        /// <summary>
+        /// BuybackPageButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BuybackPageButton;
+        
+        /// <summary>
+        /// BuybackMarkdownDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource BuybackMarkdownDataSource;
     }
 }

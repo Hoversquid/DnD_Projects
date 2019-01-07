@@ -124,6 +124,9 @@ body {
     background-color: #99ccff;
 }
 
+.MarginedButton {
+    margin-top: 15px;
+}
 
 .GridViewHeaderContainer {
     border: 1px solid black;
@@ -270,7 +273,7 @@ input[disabled='disabled'] {
 }
 
 .BBChecklist {
-    width: 80%;
+    width: 84%;
     margin-left: auto;
     border-collapse: collapse;
     margin-right: auto;
@@ -283,16 +286,18 @@ input[disabled='disabled'] {
 */
 
 .BBCell {
-    width: 360px;
+    width: 340px;
     text-align: right;
     margin: 10px 0px 10px 0;
     border-bottom: 1px solid black;
 }
 .BBCheckCell {
-    float: left;
     border-bottom: 1px solid black;
 }
 
+.BBAdminCell {
+    border-bottom: 1px solid black;
+}
 /*
 .BBChecklist checkbox {
     display: block;
@@ -504,6 +509,10 @@ input[disabled='disabled'] {
 .inputbox {
     width: 150px;
     float: right;
+}
+
+.ChecklistText {
+    width: 50px;
 }
 
 .leftButton {
