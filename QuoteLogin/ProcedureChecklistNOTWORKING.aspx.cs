@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 
 namespace QuoteLogin
 {
-    public partial class ProcedureChecklist : System.Web.UI.Page
+    public partial class ProcedureChecklistNOTWORKING : System.Web.UI.Page
     {
         public string ProcedureType
         {
@@ -313,7 +313,7 @@ namespace QuoteLogin
                     {
                         CalcOpening();
                         CalcDeposit();
-                    });
+                    } );
                     openingTask.Wait();
                 }
                 else if (qcs.ProcedureType == "Closing")
@@ -417,7 +417,7 @@ namespace QuoteLogin
         {
             if (Page.IsValid)
             {
-                PennyTotal2.Text = (GetMoneyValue(PennyAmt2.Text) * 0.01).ToString("F");
+                PennyTotal2.Text = (GetMoneyValue(PennyAmt2.Text) * 0.01).ToString("F"); 
                 NickelTotal2.Text = (GetMoneyValue(NickelAmt2.Text) * 0.05).ToString("F");
                 DimeTotal2.Text = (GetMoneyValue(DimeAmt2.Text) * 0.10).ToString("F");
                 QuarterTotal2.Text = (GetMoneyValue(QuarterAmt2.Text) * 0.25).ToString("F");
@@ -503,23 +503,6 @@ namespace QuoteLogin
             Server.Transfer("DefaultScreen.aspx");
         }
 
-        protected void StoreIDDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (StoreIDDropdown.SelectedValue != "0")
-            {
-                DepositPanel.Visible = true;
-                qcs.StoreID = Convert.ToInt32(StoreIDDropdown.SelectedValue);
-                StoreLabel.Text = StoreIDDropdown.SelectedItem.Text;
-                SelectBankDepositByStore();
-            }
-            else
-            {
-                qcs.StoreID = 0;
-                DepositPanel.Visible = false;
-                StoreLabel.Text = String.Empty;
-            }
-        }
-
         protected void CheckValid_ServerValidate(object source, ServerValidateEventArgs args)
         {
 
@@ -551,7 +534,7 @@ namespace QuoteLogin
 
         protected void OpeningPeopleValid_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (OpeningPerson1.Text == String.Empty || OpeningPerson2.Text == String.Empty)
+            if (OpeningPerson1.Text == String.Empty || OpeningPerson2 .Text == String.Empty)
             {
                 args.IsValid = false;
             }
@@ -577,7 +560,7 @@ namespace QuoteLogin
             tRow.Cells.Add(tCell);
             EmailTable.Rows.Add(tRow);
         }
-
+        
         protected void EmailSendButton_Click(object sender, EventArgs e)
         {
             /*
@@ -598,5 +581,23 @@ namespace QuoteLogin
         {
 
         }
+
+        protected void StoreIDDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (StoreIDDropdown.SelectedValue == "None")
+            {
+                qcs.StoreID = 0;
+                DepositPanel.Visible = false;
+                StoreLabel.Text = String.Empty;
+            }
+            else
+            {
+                DepositPanel.Visible = true;
+                qcs.StoreID = Convert.ToInt32(StoreIDDropdown.SelectedValue);
+                //StoreLabel.Text = StoreIDDropdown.SelectedItem.Text;
+                StoreLabel.Text = "wtf";
+                SelectBankDepositByStore();
+            }
+        }
     }
-}
+    }

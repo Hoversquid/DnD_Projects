@@ -13,13 +13,13 @@ namespace QuoteLogin {
     public partial class BuybackForm {
         
         /// <summary>
-        /// bcs control.
+        /// qcs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BuybackFormState.Controls.BuybackFormState bcs;
+        protected global::ControlLibrary.Controls.QuoteControlState qcs;
         
         /// <summary>
         /// ScriptManager control.
@@ -281,5 +281,14 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button PrintButton;
+        
+        /// <summary>
+        /// DefaultScreenButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DefaultScreenButton;
     }
 }

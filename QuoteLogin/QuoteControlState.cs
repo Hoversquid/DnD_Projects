@@ -3,11 +3,74 @@ using System.ComponentModel;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+namespace EmployeeState
+{
+    [Serializable()]
+    internal struct EmployeeProperties
+    {
+        public int EmpID;
+        public int PermID;
+    }
+}
+
+namespace EmployeeState.Controls
+{
+    [Serializable]
+    [ToolboxData("<{0}:EmployeeState runat='server'></{0}:EmployeeState runat='server'>")]
+    public class EmployeeState : WebControl
+    {
+        #region "Declarations"
+
+        private EmployeeProperties mCurrProps = new EmployeeProperties();
+        #endregion
+
+        #region "Properties"
+        [Browsable(true)]
+        [Category("ID")]
+        [DefaultValue("")]
+        [Localizable(true)]
+        [NotifyParentProperty(true)]
+        public int EmpID
+        {
+            get
+            {
+                return mCurrProps.EmpID;
+            }
+            set
+            {
+                mCurrProps.EmpID = value;
+                SaveControlState();
+            }
+        }
+
+        [Browsable(true)]
+        [Category("ID")]
+        [DefaultValue("")]
+        [Localizable(true)]
+        [NotifyParentProperty(true)]
+        public int PermID
+        {
+            get
+            {
+                return mCurrProps.PermID;
+            }
+            set
+            {
+                mCurrProps.PermID = value;
+                SaveControlState();
+            }
+        }
+        #endregion
+    }
+}
+
 namespace BuybackFormState
 {
     [Serializable()]
     internal struct BuybackProperties
     {
+        public int EmpID;
+        public int PermID;
         public bool PowerOn;
         public int Scuffs;
         public bool LiquidDamage;
@@ -30,6 +93,42 @@ namespace BuybackFormState.Controls
         #endregion
 
         #region "Properties"
+        [Browsable(true)]
+        [Category("ID")]
+        [DefaultValue("")]
+        [Localizable(true)]
+        [NotifyParentProperty(true)]
+        public int EmpID
+        {
+            get
+            {
+                return mCurrProps.EmpID;
+            }
+            set
+            {
+                mCurrProps.EmpID = value;
+                SaveControlState();
+            }
+        }
+
+        [Browsable(true)]
+        [Category("ID")]
+        [DefaultValue("")]
+        [Localizable(true)]
+        [NotifyParentProperty(true)]
+        public int PermID
+        {
+            get
+            {
+                return mCurrProps.PermID;
+            }
+            set
+            {
+                mCurrProps.PermID = value;
+                SaveControlState();
+            }
+        }
+
         [Browsable(true)]
         [Category("bool")]
         [DefaultValue("")]

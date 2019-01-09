@@ -1,5 +1,7 @@
 ﻿<%@ Page MasterPageFile="MasterPage.Master" Language="C#" AutoEventWireup="True" CodeBehind="BuybackForm.aspx.cs" Inherits="QuoteLogin.BuybackForm" Title="Buyback Form" %>
 
+<%@ Register Assembly="QuoteLogin" Namespace="ControlLibrary.Controls" TagPrefix="cc1" %>
+
 <%@ Register Assembly="QuoteLogin" Namespace="BuybackFormState.Controls" TagPrefix="cstate" %>
 
 <asp:Content ID="BuybackForm" ContentPlaceHolderID="Main" runat="server">
@@ -26,7 +28,7 @@
             return true;
         }
     </script>
-    <cstate:BuybackFormState ID="bcs" runat='server' />
+    <cc1:QuoteControlState ID="qcs" runat='server' />
     <asp:ScriptManager ID="ScriptManager" runat="server" />
 
     <asp:UpdatePanel runat="server">
@@ -76,7 +78,7 @@
                                 <asp:ListItem Selected="True" Value="0">--</asp:ListItem>
                             </asp:DropDownList>
                         </asp:TableCell></asp:TableRow></asp:Table><asp:SqlDataSource ID="DeviceTypeDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="SELECT * FROM [BuybackDeviceCategory]" />
-                <asp:Panel ID="ChecklistPanel" runat="server" HorizontalAlign="Center">
+                <asp:Panel ID="ChecklistPanel" runat="server">
                     <asp:Table ID="HandheldTable" CellPadding="5" runat="server" CssClass="BBChecklist">
                         <asp:TableRow>
                             <asp:TableCell CssClass="BBCell">
@@ -143,4 +145,6 @@
                         <asp:TableCell>
                             <asp:TextBox runat="server" Enabled="false" ID="BuybackText" />
                         </asp:TableCell></asp:TableRow></asp:Table></div></ContentTemplate></asp:UpdatePanel><asp:Button runat="server" ID="PrintButton" Text="Print Page" OnClick="PrintButton_Click" />
+            <br /><asp:Button ID="DefaultScreenButton" runat="server" OnClick="DefaultScreenButton_Click" Text="Back" Font-Bold="true" ForeColor="White" BackColor="Blue" CssClass="MarginedButton" />
+
 </asp:Content>

@@ -158,5 +158,13 @@ namespace QuoteLogin
                 Server.Transfer("ProcedureChecklist.aspx");
             }
         }
+
+        protected void BuybackButton_Click(object sender, EventArgs e)
+        {
+            if (Page.User.Identity.IsAuthenticated)
+            {
+                Server.Transfer("BuybackForm.aspx");
+            }
+        }
     }
 }

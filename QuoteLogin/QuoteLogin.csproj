@@ -92,6 +92,7 @@
       <DependentUpon>QuoteDB.mdf</DependentUpon>
     </Content>
     <Content Include="BuybackAdmin.aspx" />
+    <Content Include="BuybackAdminPageRedirect.aspx" />
     <Content Include="BuybackForm.aspx" />
     <Content Include="canvas2string.js" />
     <Content Include="CustomerHistoryPage.aspx" />
@@ -103,6 +104,7 @@
     <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="ProcedureChecklist.aspx" />
     <Content Include="QuoteLoginView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -123,7 +125,7 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="PrintTestPage.aspx" />
     <Content Include="PrintWindow.html" />
-    <Content Include="ProcedureChecklist.aspx" />
+    <Content Include="ProcedureChecklistNOTWORKING.aspx" />
     <Content Include="QuoteConfirmationPage.aspx" />
     <Content Include="QuotePage.aspx" />
     <Content Include="QuoteStyle.css" />
@@ -156,6 +158,13 @@
     </Compile>
     <Compile Include="BuybackAdmin.aspx.designer.cs">
       <DependentUpon>BuybackAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuybackAdminPageRedirect.aspx.cs">
+      <DependentUpon>BuybackAdminPageRedirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuybackAdminPageRedirect.aspx.designer.cs">
+      <DependentUpon>BuybackAdminPageRedirect.aspx</DependentUpon>
     </Compile>
     <Compile Include="BuybackForm.aspx.cs">
       <DependentUpon>BuybackForm.aspx</DependentUpon>
@@ -232,6 +241,13 @@
     </Compile>
     <Compile Include="ProcedureChecklist.aspx.designer.cs">
       <DependentUpon>ProcedureChecklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcedureChecklistNOTWORKING.aspx.cs">
+      <DependentUpon>ProcedureChecklistNOTWORKING.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcedureChecklistNOTWORKING.aspx.designer.cs">
+      <DependentUpon>ProcedureChecklistNOTWORKING.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuoteConfirmationPage.aspx.cs">

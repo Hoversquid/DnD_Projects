@@ -1,8 +1,11 @@
 ﻿<%@ Page MasterPageFile="MasterPage.Master" Language="C#" AutoEventWireup="true" CodeBehind="BuybackAdmin.aspx.cs" Inherits="QuoteLogin.BuybackAdmin" %>
 
+<%@ Register Assembly="QuoteLogin" Namespace="ControlLibrary.Controls" TagPrefix="cc1" %>
+
 
 <asp:Content ID="BuybackAdmin" ContentPlaceHolderID="Main" runat="server">
     <asp:ScriptManager ID="ScriptManager" runat="server" />
+    <cc1:QuoteControlState ID="qcs" runat='server' />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <asp:Panel ID="PresetDevicePanel" runat="server">
@@ -15,7 +18,7 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            <asp:DropDownList ID="PresetDeviceDropdown" runat="server" DataSourceID="PremadeDeviceDataSource" AppendDataBoundItems="true" DataTextField="DeviceName" DataValueField="DeviceName">
+                            <asp:DropDownList ID="PresetDeviceDropdown" AutoPostBack="true" runat="server" DataSourceID="PremadeDeviceDataSource" AppendDataBoundItems="true" DataTextField="DeviceName" DataValueField="DeviceName" OnSelectedIndexChanged="PresetDeviceDropdown_SelectedIndexChanged">
                                 <asp:ListItem Value="New" Selected="True">New Device</asp:ListItem>
                             </asp:DropDownList>
                         </asp:TableCell>
@@ -44,25 +47,39 @@
                             <asp:DropDownList ID="AdminDeviceTypeDropdown" runat="server" AppendDataBoundItems="true" DataSourceID="DeviceCategoryDataSource" DataTextField="CatName" DataValueField="CatName">
                                 <asp:ListItem Value="0">--</asp:ListItem>
                             </asp:DropDownList>
-                        </asp:TableCell></asp:TableRow></asp:Table><asp:Table CssClass="BBFormTable" runat="server" CellPadding="10">
+                        </asp:TableCell></asp:TableRow></asp:Table><asp:Table CssClass="BBFormTable" runat="server">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label runat="server">Make:</asp:Label>
+                        </asp:TableCell><asp:TableCell>
+                            <asp:Label runat="server">Model:</asp:Label>
+                        </asp:TableCell></asp:TableRow><asp:TableRow>
+                                <asp:TableCell>
+                                    <asp:TextBox ID="AdminMakeText" runat="server" />
+                                </asp:TableCell><asp:TableCell>
+                                    <asp:TextBox ID="AdminModelText" runat="server" />
+                                </asp:TableCell></asp:TableRow></asp:Table><asp:Table CssClass="BBFormTable" runat="server" CellPadding="10">
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Button ID="Submit" BackColor="Green" ForeColor="White" Font-Bold="true" runat="server" Text="Submit" OnClick="Submit_Click" ValidationGroup="PresetValidGroup" />
                         </asp:TableCell></asp:TableRow></asp:Table></asp:Panel><asp:SqlDataSource ID="PremadeDeviceDataSource" runat="server"
                 SelectCommand="SELECT * FROM [PremadeDevice]"
-                InsertCommand="INSERT INTO [PremadeDevice] (DeviceName, BasePrice, DeviceType) VALUES (@Name, @Base, @Type)"
-                UpdateCommand="UPDATE [PremadeDevice] (DeviceName, BasePrice, DeviceType) VALUES (@Name, @Base, @Type) WHERE @PresetName = @Name" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>">
+                InsertCommand="INSERT INTO [PremadeDevice] (DeviceName, BasePrice, DeviceType, Make, Model) VALUES (@Name, @Base, @Type, @Make, @Model)"
+                UpdateCommand="UPDATE [PremadeDevice] SET DeviceName = @Name, BasePrice = @Base, DeviceType = @Type, Make = @Make, Model = @Model WHERE DeviceName = @PresetName" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>">
                 <InsertParameters>
                     <asp:ControlParameter Name="Name" ControlID="AdminNameText" PropertyName="Text" />
                     <asp:ControlParameter Name="Base" ControlID="AdminBasePriceText" PropertyName="Text" />
                     <asp:ControlParameter Name="Type" ControlID="AdminDeviceTypeDropdown" PropertyName="SelectedValue" />
+                    <asp:ControlParameter Name="Make" ControlID="AdminMakeText" PropertyName="Text" />
+                    <asp:ControlParameter Name="Model" ControlID="AdminModelText" PropertyName="Text" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:ControlParameter Name="Name" ControlID="AdminNameText" PropertyName="Text" />
                     <asp:ControlParameter Name="Base" ControlID="AdminBasePriceText" PropertyName="Text" />
                     <asp:ControlParameter Name="Type" ControlID="AdminDeviceTypeDropdown" PropertyName="SelectedValue" />
                     <asp:ControlParameter Name="PresetName" ControlID="PresetDeviceDropdown" PropertyName="SelectedValue" />
-
+                    <asp:ControlParameter Name="Make" ControlID="AdminMakeText" PropertyName="Text" />
+                    <asp:ControlParameter Name="Model" ControlID="AdminModelText" PropertyName="Text" />
                 </UpdateParameters>
             </asp:SqlDataSource>
             <asp:Panel ID="DeviceTypePanel" runat="server">
@@ -72,7 +89,7 @@
                         <asp:Label runat="server">Device Type:</asp:Label>
                         </asp:TableCell></asp:TableRow><asp:TableRow>
                         <asp:TableCell>
-                            <asp:DropDownList ID="EditDeviceTypeDropdown" runat="server" DataSourceID="DeviceCategoryDataSource" AppendDataBoundItems="true" DataTextField="CatName" DataValueField="CatName">
+                            <asp:DropDownList ID="EditDeviceTypeDropdown" runat="server" AutoPostBack="true" DataSourceID="DeviceCategoryDataSource" AppendDataBoundItems="true" DataTextField="CatName" DataValueField="CatName" OnSelectedIndexChanged="EditDeviceTypeDropdown_SelectedIndexChanged">
                                 <asp:ListItem Value="New" Selected="True">New Type</asp:ListItem>
                             </asp:DropDownList>
                         </asp:TableCell></asp:TableRow></asp:Table><asp:Table runat="server" CssClass="BBFormTable">
@@ -81,16 +98,16 @@
                         <asp:Label runat="server">Name:</asp:Label>
                         </asp:TableCell></asp:TableRow><asp:TableRow>
                         <asp:TableCell>
-                            <asp:RequiredFieldValidator ID="DeviceNameValid" ControlToValidate="DeviceNameText" runat="server" ValidationGroup="ChecklistValidGroup" ErrorMessage="*" CssClass="SRRequiredError" />
+                            <asp:RequiredFieldValidator ID="DeviceNameValid" ControlToValidate="DeviceNameText" runat="server" ValidationGroup="DeviceTypeValidGroup" ErrorMessage="*" CssClass="SRRequiredError" />
                             <asp:TextBox ID="DeviceNameText" runat="server" />
                         </asp:TableCell></asp:TableRow></asp:Table><asp:Table CssClass="BBFormTable" runat="server" CellPadding="10">
                     <asp:TableRow>
                         <asp:TableCell>
-                            <asp:Button ID="SubmitDeviceTypeButton" BackColor="Green" ForeColor="White" Font-Bold="true" runat="server" Text="Submit" OnClick="SubmitDeviceTypeButton_Click" ValidationGroup="PresetValidGroup" />
+                            <asp:Button ID="SubmitDeviceTypeButton" BackColor="Green" ForeColor="White" Font-Bold="true" runat="server" Text="Submit" OnClick="SubmitDeviceTypeButton_Click" ValidationGroup="DeviceTypeValidGroup" />
                         </asp:TableCell></asp:TableRow></asp:Table></asp:Panel><asp:SqlDataSource ID="DeviceCategoryDataSource" runat="server"
                 SelectCommand="SELECT * FROM [BuybackDeviceCategory]"
                 InsertCommand="INSERT INTO [BuybackDeviceCategory] (CatName) VALUES (@Name)"
-                UpdateCommand="UPDATE [BuybackDeviceCategory] SET CatName = @Name WHERE CatName = @TypeName"
+                UpdateCommand="EXEC [UpdateDeviceTypes] @TypeName, @Name"
                 ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>">
                 <InsertParameters>
                     <asp:ControlParameter Name="Name" ControlID="DeviceNameText" PropertyName="Text" />
@@ -151,7 +168,9 @@
                             <br />
                             <asp:RegularExpressionValidator ID="ScreenCrackYesValid" ControlToValidate="ScreenCrackYesText" ValidationGroup="ChecklistValidGroup" runat="server" ValidationExpression="^[0-9]+(\.[0-9]{1,2})?$" ErrorMessage="*" CssClass="SRRequiredError" />
                             <asp:TextBox ID="ScreenCrackYesText" CssClass="ChecklistText" runat="server" />
-                        </asp:TableCell></asp:TableRow></asp:Table><asp:Button ID="ChecklistEditButton" CssClass="MarginedButton" runat="server" Text="Confirm Changes" BackColor="Green" ForeColor="White" Font-Bold="true" OnClick="ChecklistEditButton_Click" ValidationGroup="ChecklistValidGroup" />
+                        </asp:TableCell></asp:TableRow></asp:Table><asp:Label ID="ChecklistEditUpdateText" runat="server" Font-Bold="true" ForeColor="Blue" Font-Size="X-Large" />
+                <br />
+                <asp:Button ID="ChecklistEditButton" CssClass="MarginedButton" runat="server" Text="Confirm Changes" BackColor="Green" ForeColor="White" Font-Bold="true" OnClick="ChecklistEditButton_Click" ValidationGroup="ChecklistValidGroup" />
                 <br />
                 <asp:Button ID="BuybackPageButton" CssClass="MarginedButton" runat="server" Text="Back to Buyback Page" BackColor="Blue" ForeColor="White" Font-Bold="true" OnClick="BuybackPageButton_Click" />
             </asp:Panel>

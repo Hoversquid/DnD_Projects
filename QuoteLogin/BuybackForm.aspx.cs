@@ -7,36 +7,67 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Security.Principal;
+using System.Web.Security;
 
 namespace QuoteLogin
 {
     public partial class BuybackForm : System.Web.UI.Page
     {
+        public int PermID
+        {
+            get { return qcs.PermID; }
+        }
+        public int EmpID
+        {
+            get { return qcs.EmpID; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < PowerCheckl.Items.Count; i++)
+            if (!Page.User.Identity.IsAuthenticated)
             {
-                PowerCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
+                FormsAuthentication.RedirectToLoginPage();
             }
-            for (int i = 0; i < ScuffCheckl.Items.Count; i++)
+            if (!IsPostBack)
             {
-                ScuffCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
-            }
-            for (int i = 0; i < LiquidCheckl.Items.Count; i++)
-            {
-                LiquidCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
-            }
-            for (int i = 0; i < FindCheckl.Items.Count; i++)
-            {
-                FindCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
-            }
-            for (int i = 0; i < GmailCheckl.Items.Count; i++)
-            {
-                GmailCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
-            }
-            for (int i = 0; i < CrackCheckl.Items.Count; i++)
-            {
-                CrackCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
+                if (PreviousPage is DefaultScreen ds)
+                {
+                    qcs.EmpID = ds.EmpID;
+                    qcs.PermID = ds.PermID;
+                }
+                else if (PreviousPage is BuybackAdmin ba)
+                {
+                    qcs.EmpID = ba.EmpID;
+                    qcs.PermID = ba.PermID;
+                }
+                if (qcs.PermID != 1)
+                {
+                    AdminPageButton.Visible = false;
+                }
+                for (int i = 0; i < PowerCheckl.Items.Count; i++)
+                {
+                    PowerCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
+                }
+                for (int i = 0; i < ScuffCheckl.Items.Count; i++)
+                {
+                    ScuffCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
+                }
+                for (int i = 0; i < LiquidCheckl.Items.Count; i++)
+                {
+                    LiquidCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
+                }
+                for (int i = 0; i < FindCheckl.Items.Count; i++)
+                {
+                    FindCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
+                }
+                for (int i = 0; i < GmailCheckl.Items.Count; i++)
+                {
+                    GmailCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
+                }
+                for (int i = 0; i < CrackCheckl.Items.Count; i++)
+                {
+                    CrackCheckl.Items[i].Attributes.Add("onclick", "MutExChkList(this)");
+                }
             }
         }
 
@@ -113,10 +144,18 @@ namespace QuoteLogin
                     con.Open();
                     sqlData.Fill(table);
                     con.Close();
-                    BaseText.Text = table.Rows[0]["BasePrice"].ToString();
+                    MakeText.Text = table.Rows[0]["Make"].ToString();
+                    ModelText.Text = table.Rows[0]["Model"].ToString();
+                    DeviceTypeDropdown.SelectedValue = table.Rows[0]["DeviceType"].ToString();
+                    BaseText.Text = ((decimal)table.Rows[0]["BasePrice"]).ToString("#.##");
                 }
                     
             }
+        }
+
+        protected void DefaultScreenButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DefaultScreen.aspx");
         }
     }
 }

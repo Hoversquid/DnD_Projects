@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DefaultScreen.aspx.cs" Inherits="QuoteLogin.DefaultScreen" %>
 
+
 <%@ Register Assembly="QuoteLogin" Namespace="ControlLibrary.Controls" TagPrefix="cstate" %>
 <!DOCTYPE html>
 
@@ -54,6 +55,7 @@
             <asp:Button ID="QuoteViewPageButton" CssClass="DefaultFormButton" Text="Quote History" runat="server" OnClick="QuoteViewPageButton_Click" />
             <asp:Button ID="ServiceRequestFormButton" CssClass="DefaultFormButton" Text="Service Request Form Page" runat="server" OnClick="ServiceRequestFormButton_Click" />
             <asp:Button ID="ProceduresButton" CssClass="DefaultFormButton" Text="Opening / Closing Procedures" runat="server" OnClick="ProceduresButton_Click" />
+            <asp:Button ID="BuybackButton" CssClass="DefaultFormButton" Text="Buyback Page" OnClick="BuybackButton_Click" runat="server" />
             <asp:Button ID="SignOutButton" CssClass="DefaultFormButton" Text="Sign Out" runat="server" OnClick="SignOutButton_Click" />
         </div>
     </form>

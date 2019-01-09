@@ -22,6 +22,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
+        /// qcs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ControlLibrary.Controls.QuoteControlState qcs;
+        
+        /// <summary>
         /// PresetDevicePanel control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,24 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList AdminDeviceTypeDropdown;
+        
+        /// <summary>
+        /// AdminMakeText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AdminMakeText;
+        
+        /// <summary>
+        /// AdminModelText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AdminModelText;
         
         /// <summary>
         /// Submit control.
@@ -317,6 +344,15 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ScreenCrackYesText;
+        
+        /// <summary>
+        /// ChecklistEditUpdateText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ChecklistEditUpdateText;
         
         /// <summary>
         /// ChecklistEditButton control.
