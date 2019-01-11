@@ -305,6 +305,8 @@ namespace QuoteLogin
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            Page.Validate("CalcTableValid");
+            Page.Validate("DepositTableValid");
             if (Page.IsValid)
             {
                 if (qcs.ProcedureType == "Opening")
@@ -448,31 +450,28 @@ namespace QuoteLogin
         }
         private void CalcOpening()
         {
-            if (Page.IsValid)
-            {
-                PennyTotal.Text = (GetMoneyValue(PennyAmt.Text) * 0.01).ToString("F");
-                NickelTotal.Text = (GetMoneyValue(NickelAmt.Text) * 0.05).ToString("F");
-                DimeTotal.Text = (GetMoneyValue(DimeAmt.Text) * 0.10).ToString("F");
-                QuarterTotal.Text = (GetMoneyValue(QuarterAmt.Text) * 0.25).ToString("F");
-                HalfDollarTotal.Text = (GetMoneyValue(HalfDollarAmt.Text) * 0.50).ToString("F");
-                PennyRollTotal.Text = (GetMoneyValue(PennyRollAmt.Text) * 0.50).ToString("F");
-                NickelRollTotal.Text = (GetMoneyValue(NickelRollAmt.Text) * 2).ToString("F");
-                DimeRollTotal.Text = (GetMoneyValue(DimeRollAmt.Text) * 5).ToString("F");
-                QuarterRollTotal.Text = (GetMoneyValue(QuarterRollAmt.Text) * 10).ToString("F");
-                DollarCoinsTotal.Text = GetMoneyValue(DollarCoinsAmt.Text).ToString("F");
-                OneDollarTotal.Text = GetMoneyValue(OneDollarAmt.Text).ToString("F");
-                TwoDollarTotal.Text = (GetMoneyValue(TwoDollarAmt.Text) * 2).ToString("F");
-                FiveDollarTotal.Text = (GetMoneyValue(FiveDollarAmt.Text) * 5).ToString("F");
-                TenDollarTotal.Text = (GetMoneyValue(TenDollarAmt.Text) * 10).ToString("F");
-                TwentyDollarTotal.Text = (GetMoneyValue(TwentyDollarAmt.Text) * 20).ToString("F");
-                FiftyDollarTotal.Text = (GetMoneyValue(FiftyDollarAmt.Text) * 50).ToString("F");
-                HundredDollarTotal.Text = (GetMoneyValue(HundredDollarAmt.Text) * 100).ToString("F");
-                CashCountTotal.Text = (GetMoneyValue(PennyTotal.Text) + GetMoneyValue(NickelTotal.Text) + GetMoneyValue(DimeTotal.Text) + GetMoneyValue(QuarterTotal.Text) +
-                                  GetMoneyValue(HalfDollarTotal.Text) + GetMoneyValue(PennyRollTotal.Text) + GetMoneyValue(NickelRollTotal.Text) + GetMoneyValue(DimeRollTotal.Text) +
-                                  GetMoneyValue(QuarterRollTotal.Text) + GetMoneyValue(DollarCoinsTotal.Text) + GetMoneyValue(OneDollarTotal.Text) + GetMoneyValue(TwoDollarTotal.Text) +
-                                  GetMoneyValue(FiveDollarTotal.Text) + GetMoneyValue(TenDollarTotal.Text) + GetMoneyValue(TwentyDollarTotal.Text) + GetMoneyValue(FiftyDollarTotal.Text) +
-                                  GetMoneyValue(HundredDollarTotal.Text)).ToString("F");
-            }
+            PennyTotal.Text = (GetMoneyValue(PennyAmt.Text) * 0.01).ToString("F");
+            NickelTotal.Text = (GetMoneyValue(NickelAmt.Text) * 0.05).ToString("F");
+            DimeTotal.Text = (GetMoneyValue(DimeAmt.Text) * 0.10).ToString("F");
+            QuarterTotal.Text = (GetMoneyValue(QuarterAmt.Text) * 0.25).ToString("F");
+            HalfDollarTotal.Text = (GetMoneyValue(HalfDollarAmt.Text) * 0.50).ToString("F");
+            PennyRollTotal.Text = (GetMoneyValue(PennyRollAmt.Text) * 0.50).ToString("F");
+            NickelRollTotal.Text = (GetMoneyValue(NickelRollAmt.Text) * 2).ToString("F");
+            DimeRollTotal.Text = (GetMoneyValue(DimeRollAmt.Text) * 5).ToString("F");
+            QuarterRollTotal.Text = (GetMoneyValue(QuarterRollAmt.Text) * 10).ToString("F");
+            DollarCoinsTotal.Text = GetMoneyValue(DollarCoinsAmt.Text).ToString("F");
+            OneDollarTotal.Text = GetMoneyValue(OneDollarAmt.Text).ToString("F");
+            TwoDollarTotal.Text = (GetMoneyValue(TwoDollarAmt.Text) * 2).ToString("F");
+            FiveDollarTotal.Text = (GetMoneyValue(FiveDollarAmt.Text) * 5).ToString("F");
+            TenDollarTotal.Text = (GetMoneyValue(TenDollarAmt.Text) * 10).ToString("F");
+            TwentyDollarTotal.Text = (GetMoneyValue(TwentyDollarAmt.Text) * 20).ToString("F");
+            FiftyDollarTotal.Text = (GetMoneyValue(FiftyDollarAmt.Text) * 50).ToString("F");
+            HundredDollarTotal.Text = (GetMoneyValue(HundredDollarAmt.Text) * 100).ToString("F");
+            CashCountTotal.Text = (GetMoneyValue(PennyTotal.Text) + GetMoneyValue(NickelTotal.Text) + GetMoneyValue(DimeTotal.Text) + GetMoneyValue(QuarterTotal.Text) +
+                                GetMoneyValue(HalfDollarTotal.Text) + GetMoneyValue(PennyRollTotal.Text) + GetMoneyValue(NickelRollTotal.Text) + GetMoneyValue(DimeRollTotal.Text) +
+                                GetMoneyValue(QuarterRollTotal.Text) + GetMoneyValue(DollarCoinsTotal.Text) + GetMoneyValue(OneDollarTotal.Text) + GetMoneyValue(TwoDollarTotal.Text) +
+                                GetMoneyValue(FiveDollarTotal.Text) + GetMoneyValue(TenDollarTotal.Text) + GetMoneyValue(TwentyDollarTotal.Text) + GetMoneyValue(FiftyDollarTotal.Text) +
+                                GetMoneyValue(HundredDollarTotal.Text)).ToString("F");
         }
 
         protected void CalcDepositButton_Click(object sender, EventArgs e)
@@ -597,6 +596,14 @@ namespace QuoteLogin
         protected void EmailBack_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void SubmitButtonValid_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (!Page.IsValid)
+            {
+                args.IsValid = false;
+            }
         }
     }
 }
