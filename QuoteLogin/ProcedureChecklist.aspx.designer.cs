@@ -13,6 +13,15 @@ namespace QuoteLogin {
     public partial class ProcedureChecklist {
         
         /// <summary>
+        /// PlaceHolderUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel PlaceHolderUpdatePanel;
+        
+        /// <summary>
         /// ScriptManager control.
         /// </summary>
         /// <remarks>
@@ -31,22 +40,13 @@ namespace QuoteLogin {
         protected global::ControlLibrary.Controls.QuoteControlState qcs;
         
         /// <summary>
-        /// ImageString control.
+        /// iss control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField ImageString;
-        
-        /// <summary>
-        /// PlaceHolderUpdatePanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel PlaceHolderUpdatePanel;
+        protected global::ImageStringState.Controls.ImageStringState iss;
         
         /// <summary>
         /// EmailPanel control.
@@ -2126,6 +2126,15 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder ImagePlaceHolder;
+        
+        /// <summary>
+        /// ImageString control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField ImageString;
         
         /// <summary>
         /// SubmitButton control.

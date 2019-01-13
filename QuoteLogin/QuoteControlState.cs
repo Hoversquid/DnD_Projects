@@ -3,6 +3,70 @@ using System.ComponentModel;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+namespace ImageStringState
+{
+    [Serializable()]
+    internal struct ImgStringProperties
+    {
+        public string ImageString;
+    }
+}
+
+namespace ImageStringState.Controls
+{
+    [Serializable]
+    [ToolboxData("<{0}:ImageStringState runat='server' />")]
+    public class ImageStringState : WebControl
+    {
+        #region "Declarations"
+
+        private ImgStringProperties mCurrProps = new ImgStringProperties();
+
+        #endregion
+
+        #region "Properties"
+
+        [Browsable(true)]
+        [Category("string")]
+        [DefaultValue("")]
+        [Localizable(true)]
+        [NotifyParentProperty(true)]
+        public string ImageString
+        {
+            get
+            {
+                return mCurrProps.ImageString;
+            }
+            set
+            {
+                mCurrProps.ImageString = value;
+                SaveControlState();
+            }
+        }
+
+        #endregion
+        #region "Methods"
+        protected override void OnInit(System.EventArgs e)
+        {
+            Page.RegisterRequiresControlState(this);
+            base.OnInit(e);
+        }
+
+        protected override object SaveControlState()
+        {
+            return this.mCurrProps;
+        }
+
+        protected override void LoadControlState(object savedState)
+        {
+            mCurrProps = new ImgStringProperties();
+            mCurrProps = (ImgStringProperties)savedState;
+        }
+        #endregion
+
+    }
+}
+
 namespace EmployeeState
 {
     [Serializable()]
@@ -16,7 +80,7 @@ namespace EmployeeState
 namespace EmployeeState.Controls
 {
     [Serializable]
-    [ToolboxData("<{0}:EmployeeState runat='server'></{0}:EmployeeState runat='server'>")]
+    [ToolboxData("<{0}:EmployeeState runat='server'></{0}:EmployeeState>")]
     public class EmployeeState : WebControl
     {
         #region "Declarations"

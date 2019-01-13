@@ -149,7 +149,6 @@ namespace QuoteLogin
                     DeviceTypeDropdown.SelectedValue = table.Rows[0]["DeviceType"].ToString();
                     BaseText.Text = ((decimal)table.Rows[0]["BasePrice"]).ToString("#.##");
                 }
-                    
             }
         }
 

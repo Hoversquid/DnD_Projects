@@ -105,6 +105,9 @@
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="ProcedureChecklist.aspx" />
+    <Compile Include="ProcedureChecklistWIP.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Content Include="QuoteLoginView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -234,10 +237,6 @@
     </Compile>
     <Compile Include="PrintTestPage.aspx.designer.cs">
       <DependentUpon>PrintTestPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcedureChecklist.aspx.cs">
-      <DependentUpon>ProcedureChecklist.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProcedureChecklist.aspx.designer.cs">
       <DependentUpon>ProcedureChecklist.aspx</DependentUpon>
