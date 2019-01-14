@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 
 namespace QuoteLogin
 {
-    public partial class ProcedureChecklistNOTWORKING : System.Web.UI.Page
+    public partial class OpeningClosingProcedures : System.Web.UI.Page
     {
         public string ProcedureType
         {
@@ -57,7 +57,6 @@ namespace QuoteLogin
                 con.Open();
                 adapter.Fill(table);
                 con.Close();
-
                 if (table.Rows.Count > 0)
                 {
                     qcs.DepositID = Convert.ToInt32(table.Rows[0]["DepositID"].ToString().Trim());
@@ -202,15 +201,20 @@ namespace QuoteLogin
                 DateLabel.Text = "Opening Procedures - " + DateTime.Now.ToString("d");
                 OpeningProcedurePanel.Visible = true;
                 ClosingProcedurePanel.Visible = false;
-                SubmissionPanel.Visible = true;
+                DepositPanel.Visible = false;
+                OpenSubmitPanel();
             }
             else if (ProcedureTypeDropDown.SelectedValue == "Closing")
             {
                 qcs.ProcedureType = "Closing";
                 DateLabel.Text = "Closing Procedures - " + DateTime.Now.ToString("d");
+                if (qcs.StoreID != 0)
+                {
+                    DepositPanel.Visible = true;
+                }
                 OpeningProcedurePanel.Visible = false;
                 ClosingProcedurePanel.Visible = true;
-                SubmissionPanel.Visible = true;
+                OpenSubmitPanel();
             }
             else
             {
@@ -218,7 +222,8 @@ namespace QuoteLogin
                 DateLabel.Text = DateTime.Now.ToString("d");
                 OpeningProcedurePanel.Visible = false;
                 ClosingProcedurePanel.Visible = false;
-                SubmissionPanel.Visible = false;
+                DepositPanel.Visible = false;
+                SubmitPanel.Visible = false;
             }
         }
 
@@ -305,44 +310,35 @@ namespace QuoteLogin
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            Page.Validate("CashTableValidGroup");
+            Page.Validate("DepositValid");
             if (Page.IsValid)
             {
                 if (qcs.ProcedureType == "Opening")
                 {
-                    Task openingTask = Task.Run(() =>
-                    {
-                        CalcOpening();
-                        CalcDeposit();
-                    } );
-                    openingTask.Wait();
+                    CalcOpening();
+                    CalcDeposit();
                 }
                 else if (qcs.ProcedureType == "Closing")
                 {
-                    Task closingTask = Task.Run(() =>
-                    {
-                        CalcClosing();
-                        CalcDeposit();
-                    });
-                    closingTask.Wait();
+                    CalcClosing();
+                    CalcDeposit();
                 }
-                Task t = Task.Run(() =>
-                {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SubmitProcedures", "PrintCanvas();", true);
-                });
-                t.Wait();
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SubmitProcedures", "PrintCanvas();", true);
 
+
+                /*
                 System.Web.UI.WebControls.Image renderedImg = new System.Web.UI.WebControls.Image();
                 renderedImg.ImageUrl = ImageString.Value;
                 renderedImg.Visible = true;
                 renderedImg.ID = "RenderedImg";
                 ImagePlaceHolder.Controls.Add(renderedImg);
-                ProcedureTypeDropDown.Visible = false;
+                */
+
                 EmailPanel.Visible = true;
                 SelectionTable.Visible = false;
-                OpeningProcedurePanel.Visible = false;
-                ClosingProcedurePanel.Visible = false;
+                SubmitPanel.Visible = false;
                 SubmitToDB();
-
             }
         }
         private MailMessage GetMailWithImg(System.Drawing.Image img, string type, string addressList)
@@ -396,7 +392,18 @@ namespace QuoteLogin
         }
         protected void EmailButton_Click(object sender, EventArgs e)
         {
-
+            System.Drawing.Image attachedImg = Base64ToImage(ImageString.Value);
+            if (qcs.ProcedureType == "Opening")
+            {
+                MailMessage mailWithImg = GetMailWithImg(attachedImg, "Opening", EmailPrimaryAddress.Text);
+                SendWithStmpClient(mailWithImg);
+            }
+            else if (qcs.ProcedureType == "Closing")
+            {
+                MailMessage mailWithImg = GetMailWithImg(attachedImg, "Closing", EmailPrimaryAddress.Text);
+                SendWithStmpClient(mailWithImg);
+            }
+            Response.Redirect("DefaultScreen.aspx");
         }
 
         // Summary: goes back to the procedures page that was selected
@@ -417,7 +424,7 @@ namespace QuoteLogin
         {
             if (Page.IsValid)
             {
-                PennyTotal2.Text = (GetMoneyValue(PennyAmt2.Text) * 0.01).ToString("F"); 
+                PennyTotal2.Text = (GetMoneyValue(PennyAmt2.Text) * 0.01).ToString("F");
                 NickelTotal2.Text = (GetMoneyValue(NickelAmt2.Text) * 0.05).ToString("F");
                 DimeTotal2.Text = (GetMoneyValue(DimeAmt2.Text) * 0.10).ToString("F");
                 QuarterTotal2.Text = (GetMoneyValue(QuarterAmt2.Text) * 0.25).ToString("F");
@@ -495,17 +502,12 @@ namespace QuoteLogin
 
         protected void SubmitBackButton_Click(object sender, EventArgs e)
         {
-            Server.Transfer("DefaultScreen.aspx");
+            Response.Redirect("DefaultScreen.aspx");
         }
 
         protected void PageBackButton_Click(object sender, EventArgs e)
         {
-            Server.Transfer("DefaultScreen.aspx");
-        }
-
-        protected void CheckValid_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-
+            Response.Redirect("DefaultScreen.aspx");
         }
 
         protected void OpeningChecklistValid_ServerValidate(object source, ServerValidateEventArgs args)
@@ -534,7 +536,7 @@ namespace QuoteLogin
 
         protected void OpeningPeopleValid_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (OpeningPerson1.Text == String.Empty || OpeningPerson2 .Text == String.Empty)
+            if (OpeningPerson1.Text == String.Empty || OpeningPerson2.Text == String.Empty)
             {
                 args.IsValid = false;
             }
@@ -560,44 +562,69 @@ namespace QuoteLogin
             tRow.Cells.Add(tCell);
             EmailTable.Rows.Add(tRow);
         }
-        
-        protected void EmailSendButton_Click(object sender, EventArgs e)
+
+        private System.Drawing.Image Base64ToImage(string base64String)
         {
-            /*
-            string mailList = "";
-            foreach (System.Web.UI.WebControls.TextBox tb in EmailTable.Controls)
-            {
-                mailList += tb.Text + ", ";
-            }
-            System.Drawing.Image attachedImg = Base64ToImage(ImageString.Value);
-            //SaveImageToFile(attachedImg);
-            MailMessage mailWithImg = GetMailWithImg(Base64ToImage(ImageString.Value), "Opening", mailList);
-            SendWithStmpClient(mailWithImg);
-            Server.Transfer("DefaultScreen.aspx");
-            */
+            base64String = base64String.Remove(0, 22);
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+            return image;
         }
 
         protected void EmailBack_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void StoreIDDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (StoreIDDropdown.SelectedValue == "None")
+            SelectionTable.Visible = true;
+            if (qcs.ProcedureType == "Opening")
             {
-                qcs.StoreID = 0;
+                OpeningProcedurePanel.Visible = true;
+                ClosingProcedurePanel.Visible = false;
                 DepositPanel.Visible = false;
-                StoreLabel.Text = String.Empty;
+                SubmitPanel.Visible = true;
+            }
+            else if (qcs.ProcedureType == "Closing")
+            {
+                OpeningProcedurePanel.Visible = false;
+                ClosingProcedurePanel.Visible = true;
+                DepositPanel.Visible = true;
+                SubmitPanel.Visible = true;
             }
             else
             {
-                DepositPanel.Visible = true;
-                qcs.StoreID = Convert.ToInt32(StoreIDDropdown.SelectedValue);
-                //StoreLabel.Text = StoreIDDropdown.SelectedItem.Text;
-                StoreLabel.Text = "wtf";
+                Response.Redirect("DefaultScreen.aspx");
+            }
+            EmailPanel.Visible = false;
+        }
+
+        protected void StoreNameDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (StoreNameDropdown.SelectedValue == "--")
+            {
+                qcs.StoreID = 0;
+                DepositPanel.Visible = false;
+                SubmitPanel.Visible = false;
+                StoreNameLabel.Text = String.Empty;
+            }
+            else
+            {
+                if (qcs.ProcedureType == "Closing")
+                {
+                    DepositPanel.Visible = true;
+                }
+                qcs.StoreID = Convert.ToInt32(StoreNameDropdown.SelectedValue);
+                StoreNameLabel.Text = StoreNameDropdown.SelectedItem.Text;
                 SelectBankDepositByStore();
+                OpenSubmitPanel();
+            }
+        }
+
+        private void OpenSubmitPanel()
+        {
+            if (qcs.ProcedureType == "Opening" || qcs.ProcedureType == "Closing" && qcs.StoreID != 0)
+            {
+                SubmitPanel.Visible = true;
             }
         }
     }
-    }
+}

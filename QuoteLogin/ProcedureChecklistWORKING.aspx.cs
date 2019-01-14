@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 
 namespace QuoteLogin
 {
-    public partial class ProcedureChecklist : System.Web.UI.Page
+    public partial class ProcedureChecklistWORKING : System.Web.UI.Page
     {
         public string ProcedureType
         {
@@ -57,7 +57,6 @@ namespace QuoteLogin
                 con.Open();
                 adapter.Fill(table);
                 con.Close();
-
                 if (table.Rows.Count > 0)
                 {
                     qcs.DepositID = Convert.ToInt32(table.Rows[0]["DepositID"].ToString().Trim());
@@ -305,8 +304,6 @@ namespace QuoteLogin
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            Page.Validate("CalcTableValid");
-            Page.Validate("DepositTableValid");
             if (Page.IsValid)
             {
                 if (qcs.ProcedureType == "Opening")
@@ -329,15 +326,14 @@ namespace QuoteLogin
                 }
                 Task t = Task.Run(() =>
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SubmitProcedures", "PrintCanvas()", true);
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SubmitProcedures", "PrintCanvas();", true);
                 });
                 t.Wait();
 
                 System.Web.UI.WebControls.Image renderedImg = new System.Web.UI.WebControls.Image();
                 renderedImg.ImageUrl = ImageString.Value;
-                renderedImg.ID = "RenderedImg";
                 renderedImg.Visible = true;
-
+                renderedImg.ID = "RenderedImg";
                 ImagePlaceHolder.Controls.Add(renderedImg);
                 ProcedureTypeDropDown.Visible = false;
                 EmailPanel.Visible = true;
@@ -405,6 +401,7 @@ namespace QuoteLogin
         // Summary: goes back to the procedures page that was selected
         protected void BackButton_Click(object sender, EventArgs e)
         {
+
             OpeningProcedurePanel.Visible = false;
             ClosingProcedurePanel.Visible = true;
             ProcedureTypeDropDown.Visible = true;
@@ -450,28 +447,31 @@ namespace QuoteLogin
         }
         private void CalcOpening()
         {
-            PennyTotal.Text = (GetMoneyValue(PennyAmt.Text) * 0.01).ToString("F");
-            NickelTotal.Text = (GetMoneyValue(NickelAmt.Text) * 0.05).ToString("F");
-            DimeTotal.Text = (GetMoneyValue(DimeAmt.Text) * 0.10).ToString("F");
-            QuarterTotal.Text = (GetMoneyValue(QuarterAmt.Text) * 0.25).ToString("F");
-            HalfDollarTotal.Text = (GetMoneyValue(HalfDollarAmt.Text) * 0.50).ToString("F");
-            PennyRollTotal.Text = (GetMoneyValue(PennyRollAmt.Text) * 0.50).ToString("F");
-            NickelRollTotal.Text = (GetMoneyValue(NickelRollAmt.Text) * 2).ToString("F");
-            DimeRollTotal.Text = (GetMoneyValue(DimeRollAmt.Text) * 5).ToString("F");
-            QuarterRollTotal.Text = (GetMoneyValue(QuarterRollAmt.Text) * 10).ToString("F");
-            DollarCoinsTotal.Text = GetMoneyValue(DollarCoinsAmt.Text).ToString("F");
-            OneDollarTotal.Text = GetMoneyValue(OneDollarAmt.Text).ToString("F");
-            TwoDollarTotal.Text = (GetMoneyValue(TwoDollarAmt.Text) * 2).ToString("F");
-            FiveDollarTotal.Text = (GetMoneyValue(FiveDollarAmt.Text) * 5).ToString("F");
-            TenDollarTotal.Text = (GetMoneyValue(TenDollarAmt.Text) * 10).ToString("F");
-            TwentyDollarTotal.Text = (GetMoneyValue(TwentyDollarAmt.Text) * 20).ToString("F");
-            FiftyDollarTotal.Text = (GetMoneyValue(FiftyDollarAmt.Text) * 50).ToString("F");
-            HundredDollarTotal.Text = (GetMoneyValue(HundredDollarAmt.Text) * 100).ToString("F");
-            CashCountTotal.Text = (GetMoneyValue(PennyTotal.Text) + GetMoneyValue(NickelTotal.Text) + GetMoneyValue(DimeTotal.Text) + GetMoneyValue(QuarterTotal.Text) +
-                                GetMoneyValue(HalfDollarTotal.Text) + GetMoneyValue(PennyRollTotal.Text) + GetMoneyValue(NickelRollTotal.Text) + GetMoneyValue(DimeRollTotal.Text) +
-                                GetMoneyValue(QuarterRollTotal.Text) + GetMoneyValue(DollarCoinsTotal.Text) + GetMoneyValue(OneDollarTotal.Text) + GetMoneyValue(TwoDollarTotal.Text) +
-                                GetMoneyValue(FiveDollarTotal.Text) + GetMoneyValue(TenDollarTotal.Text) + GetMoneyValue(TwentyDollarTotal.Text) + GetMoneyValue(FiftyDollarTotal.Text) +
-                                GetMoneyValue(HundredDollarTotal.Text)).ToString("F");
+            if (Page.IsValid)
+            {
+                PennyTotal.Text = (GetMoneyValue(PennyAmt.Text) * 0.01).ToString("F");
+                NickelTotal.Text = (GetMoneyValue(NickelAmt.Text) * 0.05).ToString("F");
+                DimeTotal.Text = (GetMoneyValue(DimeAmt.Text) * 0.10).ToString("F");
+                QuarterTotal.Text = (GetMoneyValue(QuarterAmt.Text) * 0.25).ToString("F");
+                HalfDollarTotal.Text = (GetMoneyValue(HalfDollarAmt.Text) * 0.50).ToString("F");
+                PennyRollTotal.Text = (GetMoneyValue(PennyRollAmt.Text) * 0.50).ToString("F");
+                NickelRollTotal.Text = (GetMoneyValue(NickelRollAmt.Text) * 2).ToString("F");
+                DimeRollTotal.Text = (GetMoneyValue(DimeRollAmt.Text) * 5).ToString("F");
+                QuarterRollTotal.Text = (GetMoneyValue(QuarterRollAmt.Text) * 10).ToString("F");
+                DollarCoinsTotal.Text = GetMoneyValue(DollarCoinsAmt.Text).ToString("F");
+                OneDollarTotal.Text = GetMoneyValue(OneDollarAmt.Text).ToString("F");
+                TwoDollarTotal.Text = (GetMoneyValue(TwoDollarAmt.Text) * 2).ToString("F");
+                FiveDollarTotal.Text = (GetMoneyValue(FiveDollarAmt.Text) * 5).ToString("F");
+                TenDollarTotal.Text = (GetMoneyValue(TenDollarAmt.Text) * 10).ToString("F");
+                TwentyDollarTotal.Text = (GetMoneyValue(TwentyDollarAmt.Text) * 20).ToString("F");
+                FiftyDollarTotal.Text = (GetMoneyValue(FiftyDollarAmt.Text) * 50).ToString("F");
+                HundredDollarTotal.Text = (GetMoneyValue(HundredDollarAmt.Text) * 100).ToString("F");
+                CashCountTotal.Text = (GetMoneyValue(PennyTotal.Text) + GetMoneyValue(NickelTotal.Text) + GetMoneyValue(DimeTotal.Text) + GetMoneyValue(QuarterTotal.Text) +
+                                  GetMoneyValue(HalfDollarTotal.Text) + GetMoneyValue(PennyRollTotal.Text) + GetMoneyValue(NickelRollTotal.Text) + GetMoneyValue(DimeRollTotal.Text) +
+                                  GetMoneyValue(QuarterRollTotal.Text) + GetMoneyValue(DollarCoinsTotal.Text) + GetMoneyValue(OneDollarTotal.Text) + GetMoneyValue(TwoDollarTotal.Text) +
+                                  GetMoneyValue(FiveDollarTotal.Text) + GetMoneyValue(TenDollarTotal.Text) + GetMoneyValue(TwentyDollarTotal.Text) + GetMoneyValue(FiftyDollarTotal.Text) +
+                                  GetMoneyValue(HundredDollarTotal.Text)).ToString("F");
+            }
         }
 
         protected void CalcDepositButton_Click(object sender, EventArgs e)
@@ -500,23 +500,6 @@ namespace QuoteLogin
         protected void PageBackButton_Click(object sender, EventArgs e)
         {
             Server.Transfer("DefaultScreen.aspx");
-        }
-
-        protected void StoreIDDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (StoreIDDropdown.SelectedValue != "0")
-            {
-                DepositPanel.Visible = true;
-                qcs.StoreID = Convert.ToInt32(StoreIDDropdown.SelectedValue);
-                StoreLabel.Text = StoreIDDropdown.SelectedItem.Text;
-                SelectBankDepositByStore();
-            }
-            else
-            {
-                qcs.StoreID = 0;
-                DepositPanel.Visible = false;
-                StoreLabel.Text = String.Empty;
-            }
         }
 
         protected void CheckValid_ServerValidate(object source, ServerValidateEventArgs args)
@@ -598,11 +581,21 @@ namespace QuoteLogin
 
         }
 
-        protected void SubmitButtonValid_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void StoreIDDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!Page.IsValid)
+            if (StoreIDDropdown.SelectedValue == "None")
             {
-                args.IsValid = false;
+                qcs.StoreID = 0;
+                DepositPanel.Visible = false;
+                StoreLabel.Text = String.Empty;
+            }
+            else
+            {
+                DepositPanel.Visible = true;
+                qcs.StoreID = Convert.ToInt32(StoreIDDropdown.SelectedValue);
+                //StoreLabel.Text = StoreIDDropdown.SelectedItem.Text;
+                StoreLabel.Text = "wtf";
+                SelectBankDepositByStore();
             }
         }
     }

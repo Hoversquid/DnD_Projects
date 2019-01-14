@@ -28,6 +28,10 @@
     margin: auto;
 }
 
+.PaddedPanel {
+    margin-bottom: 80px;
+}
+
 .CashCountTable {
     width: 100%;
     border: solid;

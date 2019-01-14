@@ -104,10 +104,7 @@
     <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="ProcedureChecklist.aspx" />
-    <Compile Include="ProcedureChecklistWIP.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Content Include="OpeningClosingProcedures.aspx" />
     <Content Include="QuoteLoginView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -128,7 +125,6 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="PrintTestPage.aspx" />
     <Content Include="PrintWindow.html" />
-    <Content Include="ProcedureChecklistNOTWORKING.aspx" />
     <Content Include="QuoteConfirmationPage.aspx" />
     <Content Include="QuotePage.aspx" />
     <Content Include="QuoteStyle.css" />
@@ -230,6 +226,13 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="OpeningClosingProcedures.aspx.cs">
+      <DependentUpon>OpeningClosingProcedures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpeningClosingProcedures.aspx.designer.cs">
+      <DependentUpon>OpeningClosingProcedures.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PdfConvert.cs" />
     <Compile Include="PrintTestPage.aspx.cs">
       <DependentUpon>PrintTestPage.aspx</DependentUpon>
@@ -237,16 +240,6 @@
     </Compile>
     <Compile Include="PrintTestPage.aspx.designer.cs">
       <DependentUpon>PrintTestPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcedureChecklist.aspx.designer.cs">
-      <DependentUpon>ProcedureChecklist.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcedureChecklistNOTWORKING.aspx.cs">
-      <DependentUpon>ProcedureChecklistNOTWORKING.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcedureChecklistNOTWORKING.aspx.designer.cs">
-      <DependentUpon>ProcedureChecklistNOTWORKING.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuoteConfirmationPage.aspx.cs">

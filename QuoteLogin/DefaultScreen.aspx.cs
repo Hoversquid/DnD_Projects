@@ -155,7 +155,7 @@ namespace QuoteLogin
         {
             if (Page.User.Identity.IsAuthenticated)
             {
-                Server.Transfer("ProcedureChecklist.aspx");
+                Server.Transfer("OpeningClosingProcedures.aspx");
             }
         }
 

@@ -10,16 +10,7 @@
 namespace QuoteLogin {
     
     
-    public partial class ProcedureChecklist {
-        
-        /// <summary>
-        /// PlaceHolderUpdatePanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel PlaceHolderUpdatePanel;
+    public partial class OpeningClosingProcedures {
         
         /// <summary>
         /// ScriptManager control.
@@ -40,13 +31,13 @@ namespace QuoteLogin {
         protected global::ControlLibrary.Controls.QuoteControlState qcs;
         
         /// <summary>
-        /// iss control.
+        /// ImageString control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ImageStringState.Controls.ImageStringState iss;
+        protected global::System.Web.UI.WebControls.HiddenField ImageString;
         
         /// <summary>
         /// EmailPanel control.
@@ -94,15 +85,6 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.TextBox EmailPrimaryAddress;
         
         /// <summary>
-        /// EmailAddCCButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EmailAddCCButton;
-        
-        /// <summary>
         /// SelectionTable control.
         /// </summary>
         /// <remarks>
@@ -121,13 +103,13 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.DropDownList ProcedureTypeDropDown;
         
         /// <summary>
-        /// StoreIDDropdown control.
+        /// StoreNameDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StoreIDDropdown;
+        protected global::System.Web.UI.WebControls.DropDownList StoreNameDropdown;
         
         /// <summary>
         /// DateLabel control.
@@ -139,13 +121,13 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Label DateLabel;
         
         /// <summary>
-        /// StoreLabel control.
+        /// StoreNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StoreLabel;
+        protected global::System.Web.UI.WebControls.Label StoreNameLabel;
         
         /// <summary>
         /// OpeningProcedurePanel control.
@@ -1261,7 +1243,7 @@ namespace QuoteLogin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel DepositPanel;
+        protected global::System.Web.UI.WebControls.Panel DepositPanel;
         
         /// <summary>
         /// RepairsMonValid control.
@@ -2110,13 +2092,13 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Button CalcDepositButton;
         
         /// <summary>
-        /// SubmissionPanel control.
+        /// SubmitPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel SubmissionPanel;
+        protected global::System.Web.UI.WebControls.Panel SubmitPanel;
         
         /// <summary>
         /// ImagePlaceHolder control.
@@ -2126,15 +2108,6 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder ImagePlaceHolder;
-        
-        /// <summary>
-        /// ImageString control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField ImageString;
         
         /// <summary>
         /// SubmitButton control.
