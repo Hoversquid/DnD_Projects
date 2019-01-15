@@ -168,28 +168,35 @@ namespace QuoteLogin
                 }
             }
         }
-
+        public static string RemoveWhitespace(string input)
+        {
+            return new string(input.ToCharArray()
+                .Where(c => !Char.IsWhiteSpace(c))
+                .ToArray());
+        }
         private int GetNumberValue(string text)
         {
-            if (text == String.Empty)
+            String newTxt = text.Replace(" ", "");
+            if (newTxt == String.Empty)
             {
                 return 0;
             }
             else
             {
-                return Convert.ToInt32(text);
+                return Convert.ToInt32(newTxt);
             }
 
         }
         private double GetMoneyValue(string text)
         {
-            if (text == String.Empty)
+            String newTxt= text.Replace(" ", "");
+            if (newTxt == String.Empty)
             {
                 return 0;
             }
             else
             {
-                return Convert.ToDouble(text);
+                return Convert.ToDouble(newTxt);
             }
         }
 
@@ -374,6 +381,24 @@ namespace QuoteLogin
             return alternateView;
         }
 
+        private void TrimAmountTextBoxes(Table tbl)
+        {
+            foreach (TableRow row in tbl.Rows)
+            {
+                foreach (TableCell cell in row.Cells)
+                {
+                    foreach (System.Web.UI.Control ctrl in cell.Controls)
+                    {
+                        if (ctrl is System.Web.UI.WebControls.TextBox)
+                        {
+                            System.Web.UI.WebControls.TextBox txt = (System.Web.UI.WebControls.TextBox)ctrl;
+                            RemoveWhitespace(txt.Text);
+                        }
+                    }
+                }
+            }
+        }
+
         private void SendWithStmpClient(MailMessage msg)
         {
             var MailClient = new SmtpClient
@@ -424,6 +449,9 @@ namespace QuoteLogin
         {
             if (Page.IsValid)
             {
+                TrimAmountTextBoxes(CashClosingTable1);
+                TrimAmountTextBoxes(CashClosingTable2);
+
                 PennyTotal2.Text = (GetMoneyValue(PennyAmt2.Text) * 0.01).ToString("F");
                 NickelTotal2.Text = (GetMoneyValue(NickelAmt2.Text) * 0.05).ToString("F");
                 DimeTotal2.Text = (GetMoneyValue(DimeAmt2.Text) * 0.10).ToString("F");
@@ -457,6 +485,8 @@ namespace QuoteLogin
         {
             if (Page.IsValid)
             {
+                TrimAmountTextBoxes(CashOpeningTable1);
+                TrimAmountTextBoxes(CashOpeningTable2);
                 PennyTotal.Text = (GetMoneyValue(PennyAmt.Text) * 0.01).ToString("F");
                 NickelTotal.Text = (GetMoneyValue(NickelAmt.Text) * 0.05).ToString("F");
                 DimeTotal.Text = (GetMoneyValue(DimeAmt.Text) * 0.10).ToString("F");
@@ -621,9 +651,12 @@ namespace QuoteLogin
 
         private void OpenSubmitPanel()
         {
-            if (qcs.ProcedureType == "Opening" || qcs.ProcedureType == "Closing" && qcs.StoreID != 0)
+            if (qcs.ProcedureType == "Opening" || qcs.ProcedureType == "Closing")
             {
-                SubmitPanel.Visible = true;
+                if (qcs.StoreID > 0)
+                {
+                    SubmitPanel.Visible = true;
+                }
             }
         }
     }

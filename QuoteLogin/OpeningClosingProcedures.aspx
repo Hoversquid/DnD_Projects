@@ -76,7 +76,7 @@
                             </asp:TableCell></asp:TableRow></asp:Table><div class="LeftColumnGridDiv">
                         <div style="clear: both;">
                             <div class="LeftColumnGridDiv">
-                                <asp:Table CssClass="CashCountTable" Height="420px" runat="server" CellPadding="0" CellSpacing="0">
+                                <asp:Table ID="CashOpeningTable1" CssClass="CashCountTable" Height="420px" runat="server" CellPadding="0" CellSpacing="0">
                                     <asp:TableRow CssClass="TableHeader">
                                         <asp:TableCell ColumnSpan="2" Font-Bold="true">
                             Cash Count (Qty)
@@ -155,7 +155,7 @@
                                         </asp:TableCell><asp:TableCell>
                                             <asp:TextBox CssClass="AmountInputText" Width="55px" ID="QuarterRollTotal" BackColor="Yellow" Enabled="false" runat="server" />
                                         </asp:TableCell></asp:TableRow></asp:Table></div><div class="RightColumnGridDiv">
-                                <asp:Table CssClass="CashCountTable" Height="420px" runat="server" CellPadding="0" CellSpacing="0">
+                                <asp:Table ID="CashOpeningTable2" CssClass="CashCountTable" Height="420px" runat="server" CellPadding="0" CellSpacing="0">
                                     <asp:TableRow CssClass="TableHeader">
                                         <asp:TableCell ColumnSpan="2" Font-Bold="true">
                             Cash Count (Qty)
@@ -259,7 +259,7 @@
                             </asp:TableCell></asp:TableRow></asp:Table><div class="LeftColumnGridDiv">
                                 <div style="clear: both;">
                                     <div class="LeftColumnGridDiv">
-                                        <asp:Table CssClass="CashCountTable" Height="420px" runat="server" CellPadding="0" CellSpacing="0">
+                                        <asp:Table ID="CashClosingTable1" CssClass="CashCountTable" Height="420px" runat="server" CellPadding="0" CellSpacing="0">
                                             <asp:TableRow CssClass="TableHeader">
                                                 <asp:TableCell ColumnSpan="2" Font-Bold="true"> Cash Count (Qty) </asp:TableCell><asp:TableCell Font-Bold="true" BackColor="DarkGray"> $$ Total </asp:TableCell></asp:TableRow><asp:TableRow>
                                                 <asp:TableCell> Pennies: </asp:TableCell><asp:TableCell> <asp:RegularExpressionValidator ValidationGroup="CashTableValidGroup" ID="PennyAmt2Valid" runat="server" CssClass="SRRequiredError" ControlToValidate="PennyAmt2" Text="*" Display="Dynamic" ValidationExpression="^\d+(\.\d\d)?$" ErrorMessage="Enter valid price." />
@@ -298,7 +298,7 @@
                                                     <asp:TextBox CssClass="AmountInputText" Width="55px" ID="QuarterRollAmt2" runat="server" />
                                                 </asp:TableCell><asp:TableCell> <asp:TextBox CssClass="AmountInputText" Width="55px" ID="QuarterRollTotal2" BackColor="Yellow" Enabled="false" runat="server" />
                                                 </asp:TableCell></asp:TableRow></asp:Table></div><div class="RightColumnGridDiv">
-                                        <asp:Table CssClass="CashCountTable" Height="420px" runat="server" CellPadding="0" CellSpacing="0">
+                                        <asp:Table ID="CashClosingTable2" CssClass="CashCountTable" Height="420px" runat="server" CellPadding="0" CellSpacing="0">
                                             <asp:TableRow CssClass="TableHeader">
                                                 <asp:TableCell ColumnSpan="2" Font-Bold="true"> Cash Count (Qty) </asp:TableCell><asp:TableCell Font-Bold="true" BorderStyle="Solid" BackColor="DarkGray"> $$ Total </asp:TableCell></asp:TableRow><asp:TableRow>
                                                 <asp:TableCell> Dollar Coins: </asp:TableCell><asp:TableCell> <asp:RegularExpressionValidator ValidationGroup="CashTableValidGroup" ID="DollarCoinsAmt2Valid" runat="server" CssClass="SRRequiredError" ControlToValidate="DollarCoinsAmt2" Text="*" Display="Dynamic" ValidationExpression="^\d+(\.\d\d)?$" ErrorMessage="Enter valid price." />

@@ -166,6 +166,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.TextBox OpeningPerson2;
         
         /// <summary>
+        /// CashOpeningTable1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table CashOpeningTable1;
+        
+        /// <summary>
         /// PennyAmtValid control.
         /// </summary>
         /// <remarks>
@@ -407,6 +416,15 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox QuarterRollTotal;
+        
+        /// <summary>
+        /// CashOpeningTable2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table CashOpeningTable2;
         
         /// <summary>
         /// DollarCoinsAmtValid control.
@@ -715,6 +733,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.TextBox ClosingPerson2;
         
         /// <summary>
+        /// CashClosingTable1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table CashClosingTable1;
+        
+        /// <summary>
         /// PennyAmt2Valid control.
         /// </summary>
         /// <remarks>
@@ -956,6 +983,15 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox QuarterRollTotal2;
+        
+        /// <summary>
+        /// CashClosingTable2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table CashClosingTable2;
         
         /// <summary>
         /// DollarCoinsAmt2Valid control.
