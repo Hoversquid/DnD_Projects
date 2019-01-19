@@ -11,10 +11,29 @@ namespace QuoteLogin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+        
+        protected void ActivitiesGridView_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                GridView HeaderGrid = (GridView)sender;
+                GridViewRow HeaderGridRow = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+                TableCell HeaderCell = new TableCell();
+                HeaderCell.Text = "Department";
+                HeaderCell.ColumnSpan = 2;
+                HeaderGridRow.Cells.Add(HeaderCell);
 
+                HeaderCell = new TableCell();
+                HeaderCell.Text = "Employee";
+                HeaderCell.ColumnSpan = 2;
+                HeaderGridRow.Cells.Add(HeaderCell);
+                ActivitiesGridView.Controls[0].Controls.AddAt(0, HeaderGridRow);
+            }
         }
 
-        private void Hello()
+        protected void ActivitiesGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

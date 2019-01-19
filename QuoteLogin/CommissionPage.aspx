@@ -1,9 +1,9 @@
-﻿<%@ Page MasterPageFile="MasterPage.Master" Language="C#" AutoEventWireup="true" CodeBehind="ActivitiesTracker.aspx.cs" Inherits="QuoteLogin.ActivitiesTracker" Title="Opening and Closing Procedures" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="CommissionPage.aspx.cs" Inherits="QuoteLogin.CommissionPage" %>
 
 <%@ Register Assembly="QuoteLogin" Namespace="ControlLibrary.Controls" TagPrefix="cstate" %>
 
-<asp:Content ID="MainProcedureChecklist" ContentPlaceHolderID="Main" runat="server">
-    <asp:GridView ID="ActivitiesGridView" CellPadding="5"  HorizontalAlign="Center" DataSourceID="ActivitiesDataSource" runat="server" AutoGenerateColumns="False" ForeColor="#333333" GridLines="None" OnRowCreated="ActivitiesGridView_RowCreated" OnSelectedIndexChanged="ActivitiesGridView_SelectedIndexChanged">
+<asp:Content ID="ComissionPage" ContentPlaceHolderID="Main" runat="server">
+    <asp:GridView ID="ComissionGridView" CellPadding="5" HorizontalAlign="Center" OnRowDataBound="ComissionGridView_RowDataBound" DataSourceID="ActivitiesDataSource" runat="server" AutoGenerateColumns="False" ForeColor="#333333" GridLines="None" OnRowCreated="ActivitiesGridView_RowCreated">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="EmpID" HeaderText="EmpID" SortExpression="EmpID" Visible="false" />
@@ -31,5 +31,7 @@
         <SortedDescendingCellStyle BackColor="#FFFDF8" />
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
+    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+
     <asp:SqlDataSource ID="ActivitiesDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnectionString %>" SelectCommand="SELECT * FROM [ActivitiesTracker]" />
 </asp:Content>

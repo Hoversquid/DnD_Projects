@@ -95,9 +95,9 @@
     <Content Include="BuybackAdminPageRedirect.aspx" />
     <Content Include="BuybackForm.aspx" />
     <Content Include="canvas2string.js" />
+    <Content Include="CommissionPage.aspx" />
     <Content Include="CustomerHistoryPage.aspx" />
     <Content Include="CustomerPage.aspx" />
-    <Content Include="ActivitiesTracker.aspx" />
     <Content Include="html2canvas.js" />
     <Content Include="LoginEditPage.aspx" />
     <Content Include="LogOut.aspx" />
@@ -173,6 +173,13 @@
       <DependentUpon>BuybackForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="CommissionPage.aspx.cs">
+      <DependentUpon>CommissionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommissionPage.aspx.designer.cs">
+      <DependentUpon>CommissionPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerHistoryPage.aspx.cs">
       <DependentUpon>CustomerHistoryPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -193,10 +200,6 @@
     </Compile>
     <Compile Include="DefaultScreen.aspx.designer.cs">
       <DependentUpon>DefaultScreen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ActivitiesTracker.aspx.cs">
-      <DependentUpon>ActivitiesTracker.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
