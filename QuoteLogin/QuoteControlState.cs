@@ -354,6 +354,8 @@ namespace ControlLibrary
         public string CustPhone;
         public string CustEmail;
         public string ProcedureType;
+        public int SelectedEmpID;
+        public int TrackerID;
     }
 }
 
@@ -371,6 +373,42 @@ namespace ControlLibrary.Controls
         #endregion
 
         #region "Properties"
+        [Browsable(true)]
+        [Category("int")]
+        [DefaultValue("")]
+        [Localizable(true)]
+        [NotifyParentProperty(true)]
+        public int SelectedEmpID
+        {
+            get
+            {
+                return mCurrProps.SelectedEmpID;
+            }
+            set
+            {
+                mCurrProps.SelectedEmpID = value;
+                SaveControlState();
+            }
+        }
+
+        [Browsable(true)]
+        [Category("int")]
+        [DefaultValue("")]
+        [Localizable(true)]
+        [NotifyParentProperty(true)]
+        public int TrackerID
+        {
+            get
+            {
+                return mCurrProps.TrackerID;
+            }
+            set
+            {
+                mCurrProps.TrackerID = value;
+                SaveControlState();
+            }
+        }
+
         [Browsable(true)]
         [Category("bool")]
         [DefaultValue("")]

@@ -63,8 +63,14 @@ namespace QuoteLogin
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(CommissionEmployeeGridView, "Select$" + e.Row.RowIndex);
-                e.Row.ToolTip = "Click to select this row.";
+                e.Row.ToolTip = "Click to select this accessory entry.";
+                qcs.TrackerID = (int)CommissionEmployeeGridView.SelectedValue;
             }
+        }
+
+        protected void EmployeeSelectDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            qcs.SelectedEmpID = Convert.ToInt32(EmployeeSelectDropdown.SelectedItem.Value);
         }
     }
 }

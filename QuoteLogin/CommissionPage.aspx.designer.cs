@@ -13,6 +13,24 @@ namespace QuoteLogin {
     public partial class CommissionPage {
         
         /// <summary>
+        /// ScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager;
+        
+        /// <summary>
+        /// qcs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ControlLibrary.Controls.QuoteControlState qcs;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
@@ -67,13 +85,22 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.DropDownList EmployeeSelectDropdown;
         
         /// <summary>
-        /// GridView2 control.
+        /// CommissionEmployeeGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView CommissionEmployeeGridView;
+        
+        /// <summary>
+        /// SelectedAccessoryDetailView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView SelectedAccessoryDetailView;
         
         /// <summary>
         /// PageActionTable control.
@@ -137,5 +164,14 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource EmployeeDataSource;
+        
+        /// <summary>
+        /// SelectedCustomerAccessoryListDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SelectedCustomerAccessoryListDataSource;
     }
 }
