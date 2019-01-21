@@ -121,8 +121,35 @@ UnderlineTableRow {
 }
 
 /*
+    ComissionPage classes
+*/
+
+.MainHeader {
+    padding-bottom:10px;
+} 
+
+.GridViewBoard {
+    margin: 10px auto 10px auto;
+}
+
+.LeftColumnMainBoardDiv {
+    width: 25%;
+    float: left;
+    clear: left;
+    margin: 15px 15px 15px 15px;
+}
+
+.RightColumnMainBoardDiv {
+    width: 60%;
+    float: right;
+    clear: right;
+    margin: 15px 15px 15px 15px;
+}
+
+/*
     Other classes
 */
+
 
 body {
     background-color: #99ccff;

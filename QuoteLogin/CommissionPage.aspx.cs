@@ -45,20 +45,24 @@ namespace QuoteLogin
                 HeaderCell.ColumnSpan = 2;
                 HeaderGridRow.Cells.Add(HeaderCell);
 
-                HeaderCell = new TableCell();
-                HeaderCell.Text = "Totals";
-                HeaderCell.ColumnSpan = 2;
-                HeaderGridRow.Cells.Add(HeaderCell);
-
-                ComissionGridView.Controls[0].Controls.AddAt(0, HeaderGridRow);
+                ActivitiesGridView.Controls[0].Controls.AddAt(0, HeaderGridRow);
             }
         }
 
-        protected void ComissionGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void ActivitiesGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(ComissionGridView, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(ActivitiesGridView, "Select$" + e.Row.RowIndex);
+                e.Row.ToolTip = "Click to select this row.";
+            }
+        }
+
+        protected void CommissionEmployeeGridView_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(CommissionEmployeeGridView, "Select$" + e.Row.RowIndex);
                 e.Row.ToolTip = "Click to select this row.";
             }
         }
