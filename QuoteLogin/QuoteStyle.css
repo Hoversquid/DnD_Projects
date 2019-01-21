@@ -129,22 +129,30 @@ UnderlineTableRow {
 } 
 
 .GridViewBoard {
-    margin: 10px auto 10px auto;
+    margin: 10px 0px 10px 0px;
 }
 
 .LeftColumnMainBoardDiv {
-    width: 25%;
+    width: 40%;
     float: left;
     clear: left;
     margin: 15px 15px 15px 15px;
 }
 
 .RightColumnMainBoardDiv {
-    width: 60%;
+    width: 54%;
     float: right;
     clear: right;
     margin: 15px 15px 15px 15px;
 }
+
+.MenuPanel {
+    margin-left: auto;
+    margin-right: auto;
+    width: 94%;
+    height: 320px;
+}
+
 
 /*
     Other classes

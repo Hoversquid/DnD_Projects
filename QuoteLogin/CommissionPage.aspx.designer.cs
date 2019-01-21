@@ -13,6 +13,33 @@ namespace QuoteLogin {
     public partial class CommissionPage {
         
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// QuotaBoardPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel QuotaBoardPanel;
+        
+        /// <summary>
         /// ActivitiesGridView control.
         /// </summary>
         /// <remarks>
@@ -31,13 +58,13 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Panel CommissionPanel;
         
         /// <summary>
-        /// CommissionEmployeeGridView control.
+        /// EmployeeSelectDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CommissionEmployeeGridView;
+        protected global::System.Web.UI.WebControls.DropDownList EmployeeSelectDropdown;
         
         /// <summary>
         /// GridView2 control.
@@ -47,6 +74,33 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView2;
+        
+        /// <summary>
+        /// PageActionTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table PageActionTable;
+        
+        /// <summary>
+        /// PageSignOutButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PageSignOutButton;
+        
+        /// <summary>
+        /// PageBackButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PageBackButton;
         
         /// <summary>
         /// ActivitiesDataSource control.
