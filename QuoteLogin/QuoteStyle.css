@@ -133,14 +133,28 @@ UnderlineTableRow {
 }
 
 .LeftColumnMainBoardDiv {
-    width: 40%;
+    width: 30%;
     float: left;
     clear: left;
     margin: 15px 15px 15px 15px;
 }
 
 .RightColumnMainBoardDiv {
-    width: 54%;
+    width: 60%;
+    float: right;
+    clear: right;
+    margin: 15px 15px 15px 15px;
+}
+
+.LeftColumnTotalsBoardDiv {
+    width: 10%;
+    float: left;
+    clear: left;
+    margin: 15px 15px 15px 15px;
+}
+
+.RightColumnTotalsBoardDiv {
+    width: 84%;
     float: right;
     clear: right;
     margin: 15px 15px 15px 15px;
@@ -149,8 +163,8 @@ UnderlineTableRow {
 .MenuPanel {
     margin-left: auto;
     margin-right: auto;
-    width: 94%;
-    height: 380px;
+    width: 100%;
+    height: 600px;
 }
 
 

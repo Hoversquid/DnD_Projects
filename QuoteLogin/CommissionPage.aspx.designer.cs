@@ -31,22 +31,31 @@ namespace QuoteLogin {
         protected global::ControlLibrary.Controls.QuoteControlState qcs;
         
         /// <summary>
-        /// Button1 control.
+        /// QuotaBoardPanelButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button QuotaBoardPanelButton;
         
         /// <summary>
-        /// Button2 control.
+        /// AccessoriesBoardPanelButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button AccessoriesBoardPanelButton;
+        
+        /// <summary>
+        /// StoreTotalsPanelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button StoreTotalsPanelButton;
         
         /// <summary>
         /// QuotaBoardPanel control.
@@ -76,13 +85,49 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Panel CommissionPanel;
         
         /// <summary>
-        /// EmployeeSelectDropdown control.
+        /// EmployeeSelectGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList EmployeeSelectDropdown;
+        protected global::System.Web.UI.WebControls.GridView EmployeeSelectGridView;
+        
+        /// <summary>
+        /// TimeRangeStartText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TimeRangeStartText;
+        
+        /// <summary>
+        /// TimeRangeEndText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TimeRangeEndText;
+        
+        /// <summary>
+        /// TimeRangeStartButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button TimeRangeStartButton;
+        
+        /// <summary>
+        /// TimeRangeEndButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button TimeRangeEndButton;
         
         /// <summary>
         /// CommissionEmployeeGridView control.
@@ -101,6 +146,51 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DetailsView SelectedAccessoryDetailView;
+        
+        /// <summary>
+        /// StoreTotalsPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel StoreTotalsPanel;
+        
+        /// <summary>
+        /// StoreTotalsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label StoreTotalsLabel;
+        
+        /// <summary>
+        /// StoreSelectionGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView StoreSelectionGridView;
+        
+        /// <summary>
+        /// StoreTotalsGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView StoreTotalsGridView;
+        
+        /// <summary>
+        /// AdminPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AdminPanel;
         
         /// <summary>
         /// PageActionTable control.
@@ -157,6 +247,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.SqlDataSource StoreDataSource;
         
         /// <summary>
+        /// StoreTotalsDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource StoreTotalsDataSource;
+        
+        /// <summary>
         /// EmployeeDataSource control.
         /// </summary>
         /// <remarks>
@@ -173,5 +272,14 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SelectedCustomerAccessoryListDataSource;
+        
+        /// <summary>
+        /// StoreSelfTrackerDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource StoreSelfTrackerDataSource;
     }
 }
