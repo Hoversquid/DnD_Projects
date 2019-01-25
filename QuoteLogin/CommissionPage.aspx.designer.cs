@@ -31,6 +31,15 @@ namespace QuoteLogin {
         protected global::ControlLibrary.Controls.QuoteControlState qcs;
         
         /// <summary>
+        /// SelectedStoreDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SelectedStoreDropdown;
+        
+        /// <summary>
         /// QuotaBoardPanelButton control.
         /// </summary>
         /// <remarks>
@@ -164,15 +173,6 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label StoreTotalsLabel;
-        
-        /// <summary>
-        /// StoreSelectionGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView StoreSelectionGridView;
         
         /// <summary>
         /// StoreTotalsGridView control.

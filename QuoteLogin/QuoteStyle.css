@@ -129,7 +129,8 @@ UnderlineTableRow {
 } 
 
 .GridViewBoard {
-    margin: 10px 0px 10px 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .LeftColumnMainBoardDiv {
@@ -167,6 +168,20 @@ UnderlineTableRow {
     height: 600px;
 }
 
+.DropdownLabel {
+    padding-right: 6px;
+    margin-bottom: 6px;
+    width: 140px;
+}
+
+.SelectionMenu {
+    margin-bottom: 10px;
+}
+
+.DropdownWithLabel {
+    width: 140px;
+    margin-top: 8px;
+}
 
 /*
     Other classes

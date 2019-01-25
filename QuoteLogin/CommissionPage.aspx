@@ -6,11 +6,15 @@
     <asp:ScriptManager ID="ScriptManager" runat="server" />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-
-
             <cstate:QuoteControlState ID="qcs" runat="server" />
-            <asp:Table runat="server" CellPadding="20" HorizontalAlign="Center">
+            <asp:Table runat="server" CellPadding="18" CssClass="SelectionMenu" HorizontalAlign="Center">
                 <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label runat="server" CssClass="DropdownLabel" Font-Bold="true" Font-Size="Large">Store: </asp:Label>
+                        <asp:DropDownList ID="SelectedStoreDropdown" OnSelectedIndexChanged="SelectedStoreDropdown_SelectedIndexChanged" CssClass="DropdownWithLabel" AutoPostBack="true" AppendDataBoundItems="true" runat="server" DataSourceID="StoreDataSource" DataTextField="StoreName" DataValueField="StoreID">
+                            <asp:ListItem Value="0">Select store</asp:ListItem>
+                        </asp:DropDownList>
+                    </asp:TableCell>
                     <asp:TableCell>
                         <asp:Button ID="QuotaBoardPanelButton" CausesValidation="false" CssClass="TableFormButton" runat="server" Text="Quota Board" OnClick="QuotaBoardPanelButton_Click" />
                     </asp:TableCell><asp:TableCell>
@@ -22,8 +26,8 @@
                 </asp:TableRow>
             </asp:Table>
             <asp:Panel ID="QuotaBoardPanel" runat="server">
-                <asp:Label runat="server" Font-Bold="true" Font-Size="X-Large" CssClass="MainHeader">Quota Board</asp:Label>
-                <asp:GridView ID="ActivitiesGridView" Width="80%" CellPadding="10" HorizontalAlign="Center" OnRowDataBound="ActivitiesGridView_RowDataBound" DataSourceID="ActivitiesDataSource" runat="server" AutoGenerateColumns="False" ForeColor="#333333" OnRowCreated="ActivitiesGridView_RowCreated" AllowSorting="True">
+                <asp:Label runat="server" Font-Bold="true" Font-Size="X-Large" CssClass="SelectionMenu">Quota Board</asp:Label>
+                <asp:GridView ID="ActivitiesGridView" CssClass="GridViewBoard" HorizontalAlign="Center" CellPadding="10" OnRowDataBound="ActivitiesGridView_RowDataBound" DataSourceID="ActivitiesDataSource" runat="server" AutoGenerateColumns="False" ForeColor="#333333" OnRowCreated="ActivitiesGridView_RowCreated" AllowSorting="True">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField DataField="EmpID" HeaderText="EmpID" SortExpression="EmpID" Visible="false" />
@@ -132,55 +136,34 @@
             <asp:Panel ID="StoreTotalsPanel" runat="server" CssClass="MenuPanel" Visible="false">
                 <asp:Label ID="StoreTotalsLabel" runat="server" Text="Store Totals Board" Font-Bold="true" Font-Size="X-Large" />
                 <br />
-                <div class="LeftColumnTotalsBoardDiv">
-                    <asp:GridView ID="StoreSelectionGridView" Width="100%" OnRowCreated="StoreSelectionGridView_RowCreated" OnSelectedIndexChanged="StoreSelectionGridView_SelectedIndexChanged" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="StoreDataSource" ForeColor="#333333" GridLines="None" DataKeyNames="StoreID">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                        <Columns>
-                            <asp:BoundField DataField="StoreID" HeaderText="StoreID" InsertVisible="False" ReadOnly="True" SortExpression="StoreID" Visible="false" />
-                            <asp:BoundField DataField="StoreName" HeaderText="StoreName" SortExpression="StoreName" />
-                        </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                    </asp:GridView>
-                </div>
-                <div class="RightColumnTotalsBoardDiv">
-                    <asp:GridView ID="StoreTotalsGridView" Width="84%" HorizontalAlign="Center" runat="server" AutoGenerateColumns="False" OnRowCreated="StoreTotalsGridView_RowCreated" DataSourceID="StoreTotalsDataSource" CellPadding="4" ForeColor="#333333" GridLines="None">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                        <Columns>
-                            <asp:BoundField DataField="StoreID" HeaderText="StoreID" SortExpression="StoreID" Visible="false" />
-                            <asp:BoundField DataField="StoreQuotaRepairs" HeaderText="Q" SortExpression="StoreQuotaRepairs" />
-                            <asp:BoundField DataField="StoreActualRepairs" HeaderText="A" SortExpression="StoreActualRepairs" />
-                            <asp:BoundField DataField="StoreQuotaAccessories" HeaderText="Q" SortExpression="StoreQuotaAccessories" />
-                            <asp:BoundField DataField="StoreActualAccessories" HeaderText="A" SortExpression="StoreActualAccessories" />
-                            <asp:BoundField DataField="StoreQuotaPO" HeaderText="Q" SortExpression="StoreQuotaPO" />
-                            <asp:BoundField DataField="StoreActualPO" HeaderText="A" SortExpression="StoreActualPO" />
-                            <asp:BoundField DataField="StoreQuotaTnD" HeaderText="Q" SortExpression="StoreQuotaTnD" />
-                            <asp:BoundField DataField="StoreActualTnD" HeaderText="A" SortExpression="StoreActualTnD" />
-                            <asp:BoundField DataField="StoreQuotaTnDC" HeaderText="Q" SortExpression="StoreQuotaTnDC" />
-                            <asp:BoundField DataField="StoreActualTnDC" HeaderText="A" SortExpression="StoreActualTnDC" />
-                            <asp:BoundField DataField="StoreQuotaTotal" HeaderText="Q" SortExpression="StoreQuotaTotal" />
-                            <asp:BoundField DataField="StoreActualTotal" HeaderText="A" SortExpression="StoreActualTotal" />
-                        </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                    </asp:GridView>
-                </div>
+                <asp:GridView ID="StoreTotalsGridView" CssClass="GridViewBoard" Width="84%" CellPadding="10" HorizontalAlign="Center" runat="server" AutoGenerateColumns="False" OnRowCreated="StoreTotalsGridView_RowCreated" DataSourceID="StoreTotalsDataSource" ForeColor="#333333" GridLines="Both">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:BoundField DataField="StoreID" HeaderText="StoreID" SortExpression="StoreID" Visible="false" />
+                        <asp:BoundField DataField="StoreQuotaRepairs" HeaderText="Q" SortExpression="StoreQuotaRepairs" />
+                        <asp:BoundField DataField="StoreActualRepairs" HeaderText="A" SortExpression="StoreActualRepairs" />
+                        <asp:BoundField DataField="StoreQuotaAccessories" HeaderText="Q" SortExpression="StoreQuotaAccessories" />
+                        <asp:BoundField DataField="StoreActualAccessories" HeaderText="A" SortExpression="StoreActualAccessories" />
+                        <asp:BoundField DataField="StoreQuotaPO" HeaderText="Q" SortExpression="StoreQuotaPO" />
+                        <asp:BoundField DataField="StoreActualPO" HeaderText="A" SortExpression="StoreActualPO" />
+                        <asp:BoundField DataField="StoreQuotaTnD" HeaderText="Q" SortExpression="StoreQuotaTnD" />
+                        <asp:BoundField DataField="StoreActualTnD" HeaderText="A" SortExpression="StoreActualTnD" />
+                        <asp:BoundField DataField="StoreQuotaTnDC" HeaderText="Q" SortExpression="StoreQuotaTnDC" />
+                        <asp:BoundField DataField="StoreActualTnDC" HeaderText="A" SortExpression="StoreActualTnDC" />
+                        <asp:BoundField DataField="StoreQuotaTotal" HeaderText="Q" SortExpression="StoreQuotaTotal" />
+                        <asp:BoundField DataField="StoreActualTotal" HeaderText="A" SortExpression="StoreActualTotal" />
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
             </asp:Panel>
             <asp:Panel ID="AdminPanel" runat="server">
             </asp:Panel>
@@ -190,7 +173,11 @@
                         <asp:Button ID="PageSignOutButton" CausesValidation="false" CssClass="TableFormButton" runat="server" Text="Sign Out" />
                     </asp:TableCell><asp:TableCell>
                         <asp:Button ID="PageBackButton" CausesValidation="false" CssClass="TableFormButton" runat="server" Text="Back" />
-                    </asp:TableCell></asp:TableRow></asp:Table><asp:SqlDataSource ID="ActivitiesDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="SELECT * FROM [ActivitiesTracker]" />
+                    </asp:TableCell></asp:TableRow></asp:Table><asp:SqlDataSource ID="ActivitiesDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="SELECT * FROM [ActivitiesTracker] WHERE (StoreID = @StoreID)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="qcs" Name="StoreID" Type="Int32" DefaultValue="" PropertyName="StoreID" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             <asp:SqlDataSource ID="ComissionDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="SELECT * FROM [AccessoriesTracker] WHERE (EmpID = @SelectedEmpID)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [AccessoriesTracker] WHERE [TrackerID] = @original_TrackerID AND (([EmpID] = @original_EmpID) OR ([EmpID] IS NULL AND @original_EmpID IS NULL)) AND (([AccName] = @original_AccName) OR ([AccName] IS NULL AND @original_AccName IS NULL)) AND (([AccAmt] = @original_AccAmt) OR ([AccAmt] IS NULL AND @original_AccAmt IS NULL))" InsertCommand="INSERT INTO [AccessoriesTracker] ([EmpID], [AccName], [AccAmt]) VALUES (@EmpID, @AccName, @AccAmt)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [AccessoriesTracker] SET [EmpID] = @EmpID, [AccName] = @AccName, [AccAmt] = @AccAmt WHERE [TrackerID] = @original_TrackerID AND (([EmpID] = @original_EmpID) OR ([EmpID] IS NULL AND @original_EmpID IS NULL)) AND (([AccName] = @original_AccName) OR ([AccName] IS NULL AND @original_AccName IS NULL)) AND (([AccAmt] = @original_AccAmt) OR ([AccAmt] IS NULL AND @original_AccAmt IS NULL))">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="qcs" Name="SelectedEmpID" Type="Int32" DefaultValue="" PropertyName="SelectedEmpID" />

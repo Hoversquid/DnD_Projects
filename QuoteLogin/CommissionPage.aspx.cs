@@ -177,18 +177,9 @@ namespace QuoteLogin
             }
         }
 
-        protected void StoreSelectionGridView_RowCreated(object sender, GridViewRowEventArgs e)
+        protected void SelectedStoreDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(StoreSelectionGridView, "Select$" + e.Row.RowIndex);
-                e.Row.ToolTip = "Click to select this store.";
-            }
-        }
-
-        protected void StoreSelectionGridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            qcs.StoreID = (int)StoreSelectionGridView.SelectedValue;
+            qcs.StoreID = Convert.ToInt32(SelectedStoreDropdown.SelectedValue);
         }
     }
 }
