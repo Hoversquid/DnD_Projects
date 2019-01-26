@@ -147,6 +147,15 @@ UnderlineTableRow {
     margin: 15px 15px 15px 15px;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+a
+{
+    text-decoration: none;
+}
+
 .LeftColumnTotalsBoardDiv {
     width: 10%;
     float: left;
@@ -161,11 +170,27 @@ UnderlineTableRow {
     margin: 15px 15px 15px 15px;
 }
 
+.LeftColumnMenu {
+    width: 28%;
+    float: left;
+    clear: left;
+    margin: 30px 15px 15px 6%;
+    position: relative;
+}
+
+.RightColumnMenu {
+    width: 50%;
+    float: right;
+    clear: right;
+    margin: 15px 10% 15px 15px;
+    position: relative;
+}
+
 .MenuPanel {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height: 600px;
+    height: 500px;
 }
 
 .DropdownLabel {
@@ -182,6 +207,16 @@ UnderlineTableRow {
     width: 140px;
     margin-top: 8px;
 }
+
+.InputCell {
+    width: 160px;
+    margin: auto;
+}
+
+.TopMenuDiv {
+    height: 100px;
+}
+
 
 /*
     Other classes
