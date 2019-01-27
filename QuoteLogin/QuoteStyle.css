@@ -134,14 +134,14 @@ UnderlineTableRow {
 }
 
 .LeftColumnMainBoardDiv {
-    width: 30%;
+    width: 24%;
     float: left;
     clear: left;
     margin: 15px 15px 15px 15px;
 }
 
 .RightColumnMainBoardDiv {
-    width: 60%;
+    width: 68%;
     float: right;
     clear: right;
     margin: 15px 15px 15px 15px;
@@ -157,14 +157,14 @@ a
 }
 
 .LeftColumnTotalsBoardDiv {
-    width: 10%;
+    width: 60%;
     float: left;
     clear: left;
     margin: 15px 15px 15px 15px;
 }
 
 .RightColumnTotalsBoardDiv {
-    width: 84%;
+    width: 34%;
     float: right;
     clear: right;
     margin: 15px 15px 15px 15px;
@@ -174,15 +174,15 @@ a
     width: 28%;
     float: left;
     clear: left;
-    margin: 30px 15px 15px 6%;
+    margin: 15px 15px 15px 6%;
     position: relative;
 }
 
 .RightColumnMenu {
-    width: 50%;
+    width: 45%;
     float: right;
     clear: right;
-    margin: 15px 10% 15px 15px;
+    margin: 15px 8% 15px 15px;
     position: relative;
 }
 
@@ -194,8 +194,8 @@ a
 }
 
 .DropdownLabel {
-    padding-right: 6px;
-    margin-bottom: 6px;
+    padding-right: 8px;
+    margin-bottom: 8px;
     width: 140px;
 }
 
@@ -209,14 +209,13 @@ a
 }
 
 .InputCell {
-    width: 160px;
+    width: 122px;
     margin: auto;
 }
 
 .TopMenuDiv {
-    height: 100px;
+    height: 80px;
 }
-
 
 /*
     Other classes

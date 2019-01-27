@@ -13,7 +13,7 @@ namespace QuoteLogin
         {
             if (!IsPostBack)
             {
-
+                qcs.SelectedEmpID = 0;
             }
         }
 
@@ -138,11 +138,6 @@ namespace QuoteLogin
             BoardLabel.Text = "Store Totals -";
         }
 
-        private void SetVisibility()
-        {
-
-        }
-
         protected void StoreTotalsGridView_RowCreated(object sender, GridViewRowEventArgs e)
         {
             /*
@@ -208,6 +203,11 @@ namespace QuoteLogin
                 ButtonMenuPanel.Visible = true;
                 StoreLabel.Text = SelectedStoreDropdown.SelectedItem.Text;
             }
+        }
+
+        protected void AccessoryEmployeeSelectionDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            qcs.SelectedEmpID = Convert.ToInt32(AccessoryEmployeeSelectionDropdown.SelectedValue);
         }
     }
 }

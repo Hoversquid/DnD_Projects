@@ -15,15 +15,15 @@
                     </asp:DropDownList>
                 </asp:Panel>
                 <asp:Panel ID="ButtonMenuPanel" CssClass="RightColumnMenu" Visible="false" runat="server">
-                    <asp:Table runat="server" CellPadding="18" CssClass="SelectionMenu" HorizontalAlign="Center">
+                    <asp:Table runat="server" CellPadding="5" CssClass="SelectionMenu" HorizontalAlign="Center">
                         <asp:TableRow>
-                            <asp:TableCell CssClass="InputCell">
-                                <asp:Button ID="QuotaBoardPanelButton" CausesValidation="false" CssClass="TableFormButton" runat="server" Text="Quota Board" OnClick="QuotaBoardPanelButton_Click" />
+                            <asp:TableCell>
+                                <asp:Button ID="QuotaBoardPanelButton" CssClass="InputCell" CausesValidation="false" runat="server" Text="Quota Board" OnClick="QuotaBoardPanelButton_Click" />
                             </asp:TableCell><asp:TableCell>
-                                <asp:Button ID="AccessoriesBoardPanelButton" CausesValidation="false" CssClass="TableFormButton" runat="server" Text="Accessories Board" OnClick="AccessoriesBoardPanelButton_Click" />
+                                <asp:Button ID="AccessoriesBoardPanelButton" CssClass="InputCell" CausesValidation="false" runat="server" Text="Accessories Board" OnClick="AccessoriesBoardPanelButton_Click" />
                             </asp:TableCell>
-                            <asp:TableCell CssClass="InputCell">
-                                <asp:Button ID="StoreTotalsPanelButton" CausesValidation="false" runat="server" Text="Store Totals" CssClass="TableFormButton" OnClick="StoreTotalsPanelButton_Click" />
+                            <asp:TableCell>
+                                <asp:Button ID="StoreTotalsPanelButton"  CssClass="InputCell" CausesValidation="false" runat="server" Text="Store Totals" OnClick="StoreTotalsPanelButton_Click" />
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
@@ -170,26 +170,15 @@
             </asp:Panel>
             <asp:Panel ID="CommissionPanel" CssClass="MenuPanel" runat="server" Visible="false">
                 <br />
-                <div class="LeftColumnMainBoardDiv">
-                    <asp:GridView HorizontalAlign="Center" runat="server" ID="EmployeeSelectGridView" AutoGenerateColumns="False" CellPadding="5" DataKeyNames="EmpID" DataSourceID="EmployeeDataSource" ForeColor="#333333" GridLines="None" OnRowCreated="EmployeeSelectGridView_RowCreated" OnSelectedIndexChanged="EmployeeSelectGridView_SelectedIndexChanged">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                        <Columns>
-                            <asp:BoundField DataField="EmpID" HeaderText="EmpID" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="EmpID" />
-                            <asp:BoundField DataField="EmpName" HeaderText="Employee" ReadOnly="True" SortExpression="EmpName" />
-                        </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#5D7B9D" Height="40px" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                    </asp:GridView>
-                    <br />
-                    <asp:Table runat="server" Width="100%" Height="60px">
+                <div class="LeftColumnMenu">
+                    <asp:Label runat="server" Text="Employee: " CssClass="DropdownLabel" Font-Bold="true" Font-Size="Large" />
+                    <asp:DropDownList ID="AccessoryEmployeeSelectionDropdown" OnSelectedIndexChanged="AccessoryEmployeeSelectionDropdown_SelectedIndexChanged" CssClass="DropdownWithLabel" runat="server" AppendDataBoundItems="true" DataSourceID="EmployeeDataSource">
+                        <asp:ListItem Value="0" Text="Select Employee" />
+                    </asp:DropDownList>
+
+                </div>
+                <div class="RightColumnMenu">
+                    <asp:Table runat="server" HorizontalAlign="Center" Width="74%" Height="60px">
                         <asp:TableRow>
                             <asp:TableCell ColumnSpan="3" Font-Bold="true" Font-Size="Large">
                     Select Time Range
@@ -203,8 +192,7 @@
                                 <asp:Button ID="TimeRangeStartButton" runat="server" OnClick="TimeRangeStartButton_Click" Text="| <<" />
                             </asp:TableCell><asp:TableCell>
                                 <asp:Button ID="TimeRangeEndButton" runat="server" OnClick="TimeRangeEndButton_Click" Text=">> |" />
-                            </asp:TableCell></asp:TableRow></asp:Table></div><div class="RightColumnMainBoardDiv">
-                    <asp:GridView ID="CommissionEmployeeGridView" Width="100%" Height="260px" PageSize="8" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnRowCreated="CommissionEmployeeGridView_RowCreated" DataSourceID="ComissionDataSource" DataKeyNames="TrackerID" AllowPaging="True" OnSelectedIndexChanged="CommissionEmployeeGridView_SelectedIndexChanged">
+                            </asp:TableCell></asp:TableRow></asp:Table></div><br /><asp:GridView ID="CommissionEmployeeGridView" CssClass="LeftColumnTotalsBoardDiv" PageSize="8" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnRowCreated="CommissionEmployeeGridView_RowCreated" DataSourceID="ComissionDataSource" DataKeyNames="TrackerID" AllowPaging="True" OnSelectedIndexChanged="CommissionEmployeeGridView_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField DataField="TrackerID" HeaderText="TrackerID" SortExpression="TrackerID" ReadOnly="True" InsertVisible="False" Visible="false" />
@@ -227,7 +215,7 @@
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
-                    <asp:DetailsView ID="SelectedAccessoryDetailView" Height="60px" Width="100%" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="TrackerID" DataSourceID="SelectedCustomerAccessoryListDataSource" ForeColor="#333333" GridLines="None">
+                    <asp:DetailsView ID="SelectedAccessoryDetailView" CssClass="RightColumnTotalsBoardDiv" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="TrackerID" DataSourceID="SelectedCustomerAccessoryListDataSource" ForeColor="#333333" GridLines="None">
                         <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
@@ -247,7 +235,6 @@
                         <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
                         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                     </asp:DetailsView>
-                </div>
             </asp:Panel>
             <asp:Panel ID="StoreTotalsPanel" runat="server" Visible="false">
             </asp:Panel>
@@ -299,7 +286,8 @@
             <asp:SqlDataSource ID="EmployeeDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="EXEC GetAllEmpNames" />
             <asp:SqlDataSource ID="SelectedCustomerAccessoryListDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="SELECT * FROM [AccessoriesTracker] WHERE (EmpID = @SelectedEmpID) AND (StoreID = @StoreID)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [AccessoriesTracker] WHERE [TrackerID] = @original_TrackerID AND (([EmpID] = @original_EmpID) OR ([EmpID] IS NULL AND @original_EmpID IS NULL)) AND (([StoreID] = @original_StoreID) OR ([StoreID] IS NULL AND @original_StoreID IS NULL)) AND [InvoiceID] = @original_InvoiceID AND (([AccName] = @original_AccName) OR ([AccName] IS NULL AND @original_AccName IS NULL)) AND (([AccAmt] = @original_AccAmt) OR ([AccAmt] IS NULL AND @original_AccAmt IS NULL)) AND (([TimeSold] = @original_TimeSold) OR ([TimeSold] IS NULL AND @original_TimeSold IS NULL))" InsertCommand="INSERT INTO [AccessoriesTracker] ([EmpID], [StoreID], [InvoiceID], [AccName], [AccAmt], [TimeSold]) VALUES (@EmpID, @StoreID, @InvoiceID, @AccName, @AccAmt, @TimeSold)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [AccessoriesTracker] SET [EmpID] = @EmpID, [StoreID] = @StoreID, [InvoiceID] = @InvoiceID, [AccName] = @AccName, [AccAmt] = @AccAmt, [TimeSold] = @TimeSold WHERE [TrackerID] = @original_TrackerID AND (([EmpID] = @original_EmpID) OR ([EmpID] IS NULL AND @original_EmpID IS NULL)) AND (([StoreID] = @original_StoreID) OR ([StoreID] IS NULL AND @original_StoreID IS NULL)) AND [InvoiceID] = @original_InvoiceID AND (([AccName] = @original_AccName) OR ([AccName] IS NULL AND @original_AccName IS NULL)) AND (([AccAmt] = @original_AccAmt) OR ([AccAmt] IS NULL AND @original_AccAmt IS NULL)) AND (([TimeSold] = @original_TimeSold) OR ([TimeSold] IS NULL AND @original_TimeSold IS NULL))">
                 <SelectParameters>
-
+                    <asp:ControlParameter ControlID="qcs" Name="SelectedEmpID" Type="Int32" DefaultValue="" PropertyName="SelectedEmpID" />
+                    <asp:ControlParameter ControlID="qcs" Name="StoreID" Type="Int32" DefaultValue="" PropertyName="StoreID" />
                 </SelectParameters>
                 <DeleteParameters>
                     <asp:Parameter Name="original_TrackerID" Type="Int32" />

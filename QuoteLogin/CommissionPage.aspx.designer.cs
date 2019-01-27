@@ -166,13 +166,13 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Panel CommissionPanel;
         
         /// <summary>
-        /// EmployeeSelectGridView control.
+        /// AccessoryEmployeeSelectionDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView EmployeeSelectGridView;
+        protected global::System.Web.UI.WebControls.DropDownList AccessoryEmployeeSelectionDropdown;
         
         /// <summary>
         /// TimeRangeStartText control.
