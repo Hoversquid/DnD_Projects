@@ -13,15 +13,6 @@ namespace QuoteLogin {
     public partial class CommissionPage {
         
         /// <summary>
-        /// ScriptManager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager;
-        
-        /// <summary>
         /// qcs control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ControlLibrary.Controls.QuoteControlState qcs;
+        
+        /// <summary>
+        /// ScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
         /// StoreSelectionPanel control.
@@ -157,22 +157,22 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.GridView StoreTotalsGridView;
         
         /// <summary>
-        /// CommissionPanel control.
+        /// CommissionSelectionPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CommissionPanel;
+        protected global::System.Web.UI.WebControls.Panel CommissionSelectionPanel;
         
         /// <summary>
-        /// AccessoryEmployeeSelectionDropdown control.
+        /// AccessoryEmpSelectionDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList AccessoryEmployeeSelectionDropdown;
+        protected global::System.Web.UI.WebControls.DropDownList AccessoryEmpSelectionDropdown;
         
         /// <summary>
         /// TimeRangeStartText control.
@@ -211,6 +211,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Button TimeRangeEndButton;
         
         /// <summary>
+        /// CommissionAccessoryPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel CommissionAccessoryPanel;
+        
+        /// <summary>
         /// CommissionEmployeeGridView control.
         /// </summary>
         /// <remarks>
@@ -227,15 +236,6 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DetailsView SelectedAccessoryDetailView;
-        
-        /// <summary>
-        /// StoreTotalsPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel StoreTotalsPanel;
         
         /// <summary>
         /// AdminPanel control.

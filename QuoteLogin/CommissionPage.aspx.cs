@@ -81,21 +81,6 @@ namespace QuoteLogin
             }
         }
 
-        protected void EmployeeSelectGridView_RowCreated(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(EmployeeSelectGridView, "Select$" + e.Row.RowIndex);
-                e.Row.ToolTip = "Click to select this row.";
-            }
-        }
-
-        protected void EmployeeSelectGridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            qcs.SelectedEmpID = (int)EmployeeSelectGridView.SelectedValue;
-            qcs.TrackerID = 0;
-        }
-
         protected void CommissionEmployeeGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             qcs.TrackerID = (int)CommissionEmployeeGridView.SelectedValue;
@@ -114,8 +99,8 @@ namespace QuoteLogin
         protected void QuotaBoardPanelButton_Click(object sender, EventArgs e)
         {
             QuotaBoardPanel.Visible = true;
-            CommissionPanel.Visible = false;
-            StoreTotalsPanel.Visible = false;
+            CommissionSelectionPanel.Visible = false;
+            CommissionAccessoryPanel.Visible = false;
             LabelPanel.Visible = true;
             BoardLabel.Text = "Quota Board -";
         }
@@ -123,19 +108,9 @@ namespace QuoteLogin
         protected void AccessoriesBoardPanelButton_Click(object sender, EventArgs e)
         {
             QuotaBoardPanel.Visible = false;
-            CommissionPanel.Visible = true;
-            StoreTotalsPanel.Visible = false;
+            CommissionSelectionPanel.Visible = true;
             LabelPanel.Visible = true;
             BoardLabel.Text = "Accessories Board -";
-        }
-
-        protected void StoreTotalsPanelButton_Click(object sender, EventArgs e)
-        {
-            QuotaBoardPanel.Visible = false;
-            CommissionPanel.Visible = false;
-            StoreTotalsPanel.Visible = true;
-            LabelPanel.Visible = true;
-            BoardLabel.Text = "Store Totals -";
         }
 
         protected void StoreTotalsGridView_RowCreated(object sender, GridViewRowEventArgs e)
@@ -190,12 +165,13 @@ namespace QuoteLogin
         protected void SelectedStoreDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             qcs.StoreID = Convert.ToInt32(SelectedStoreDropdown.SelectedValue);
+            qcs.SelectedEmpID = 0;
             if (qcs.StoreID == 0)
             {
                 ButtonMenuPanel.Visible = false;
                 QuotaBoardPanel.Visible = false;
-                StoreTotalsPanel.Visible = false;
-                CommissionPanel.Visible = false;
+                CommissionSelectionPanel.Visible = false;
+                CommissionAccessoryPanel.Visible = false;
                 LabelPanel.Visible = false;
             }
             else
@@ -205,9 +181,24 @@ namespace QuoteLogin
             }
         }
 
-        protected void AccessoryEmployeeSelectionDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        protected void AccessoryEmpSelectionDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            qcs.SelectedEmpID = Convert.ToInt32(AccessoryEmployeeSelectionDropdown.SelectedValue);
+            qcs.SelectedEmpID = Convert.ToInt32(AccessoryEmpSelectionDropdown.SelectedValue);
+            if (qcs.SelectedEmpID == 0)
+            {
+                CommissionAccessoryPanel.Visible = false;
+            }
+            else
+            {
+                CommissionAccessoryPanel.Visible = true;
+
+            }
+        }
+
+        protected void SelectedAccessoryDetailView_ItemCommand(object sender, DetailsViewCommandEventArgs e)
+        {
+            SelectedCustomerAccessoryListDataSource.DataBind();
+            ComissionDataSource.DataBind();
         }
     }
 }

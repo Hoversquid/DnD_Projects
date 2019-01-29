@@ -160,29 +160,33 @@ a
     width: 60%;
     float: left;
     clear: left;
-    margin: 15px 15px 15px 15px;
+    margin: 15px 15px 15px 34px;
 }
 
 .RightColumnTotalsBoardDiv {
     width: 34%;
     float: right;
     clear: right;
-    margin: 15px 15px 15px 15px;
+    margin: 15px 34px 15px 15px;
 }
 
 .LeftColumnMenu {
-    width: 28%;
+    width: 20%;
     float: left;
     clear: left;
-    margin: 15px 15px 15px 6%;
+    margin: 15px 15px 15px 15%;
     position: relative;
 }
 
+.CenteredText {
+    margin: 0px auto 0px auto;
+}
+
 .RightColumnMenu {
-    width: 45%;
+    width: 40%;
     float: right;
     clear: right;
-    margin: 15px 8% 15px 15px;
+    margin: 15px 15% 15px 15px;
     position: relative;
 }
 
@@ -209,7 +213,7 @@ a
 }
 
 .InputCell {
-    width: 122px;
+    width: 130px;
     margin: auto;
 }
 
