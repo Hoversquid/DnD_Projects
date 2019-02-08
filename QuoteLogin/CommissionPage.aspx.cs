@@ -98,8 +98,9 @@ namespace QuoteLogin
 
         protected void QuotaBoardPanelButton_Click(object sender, EventArgs e)
         {
+            
             QuotaBoardPanel.Visible = true;
-            CommissionSelectionPanel.Visible = false;
+            AdminPanel.Visible = false;
             CommissionAccessoryPanel.Visible = false;
             LabelPanel.Visible = true;
             BoardLabel.Text = "Quota Board -";
@@ -107,9 +108,11 @@ namespace QuoteLogin
 
         protected void AccessoriesBoardPanelButton_Click(object sender, EventArgs e)
         {
+            ComissionDataSource.DataBind();
             QuotaBoardPanel.Visible = false;
-            CommissionSelectionPanel.Visible = true;
+            AdminPanel.Visible = false;
             LabelPanel.Visible = true;
+            CommissionAccessoryPanel.Visible = true;
             BoardLabel.Text = "Accessories Board -";
         }
 
@@ -165,13 +168,15 @@ namespace QuoteLogin
         protected void SelectedStoreDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             qcs.StoreID = Convert.ToInt32(SelectedStoreDropdown.SelectedValue);
-            qcs.SelectedEmpID = 0;
+            //qcs.SelectedEmpID = 0;
+            ComissionDataSource.DataBind();
+            CommissionEmployeeGridView.DataBind();
             if (qcs.StoreID == 0)
             {
                 ButtonMenuPanel.Visible = false;
                 QuotaBoardPanel.Visible = false;
-                CommissionSelectionPanel.Visible = false;
                 CommissionAccessoryPanel.Visible = false;
+                AdminPanel.Visible = false;
                 LabelPanel.Visible = false;
             }
             else
@@ -184,21 +189,40 @@ namespace QuoteLogin
         protected void AccessoryEmpSelectionDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             qcs.SelectedEmpID = Convert.ToInt32(AccessoryEmpSelectionDropdown.SelectedValue);
-            if (qcs.SelectedEmpID == 0)
-            {
-                CommissionAccessoryPanel.Visible = false;
-            }
-            else
-            {
-                CommissionAccessoryPanel.Visible = true;
-
-            }
+            ComissionDataSource.DataBind();
+            CommissionEmployeeGridView.DataBind();
         }
 
-        protected void SelectedAccessoryDetailView_ItemCommand(object sender, DetailsViewCommandEventArgs e)
+        protected void EmpAccessoryAddButton_Click(object sender, EventArgs e)
         {
-            SelectedCustomerAccessoryListDataSource.DataBind();
+            SelectedAccessoryDetailView.ChangeMode(DetailsViewMode.Insert);
+        }
+        protected void SelectedAccessoryDetailView_ItemInserting(object sender, DetailsViewInsertEventArgs e)
+        {
+            //SelectedEmpAccessoryListDataSource.InsertParameters["EmpID"].DefaultValue = qcs.SelectedEmpID.ToString();
+            //SelectedEmpAccessoryListDataSource.InsertParameters["StoreID"].DefaultValue = qcs.StoreID.ToString();
+            //SelectedAccessoryDetailView.InsertItem(true);
+            //SelectedAccessoryDetailView.InsertItem(true);
+        }
+
+        protected void SetStoreQuotasButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void SelectInvoiceButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void AdminBoardPanelButton_Click(object sender, EventArgs e)
+        {
             ComissionDataSource.DataBind();
+            QuotaBoardPanel.Visible = false;
+            LabelPanel.Visible = true;
+            CommissionAccessoryPanel.Visible = false;
+            AdminPanel.Visible = true;
+            BoardLabel.Text = "Admin Board -";
         }
     }
 }
