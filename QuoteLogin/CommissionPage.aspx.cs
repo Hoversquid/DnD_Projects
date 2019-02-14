@@ -207,12 +207,12 @@ namespace QuoteLogin
 
         protected void SetStoreQuotasButton_Click(object sender, EventArgs e)
         {
-
+            // databind right menu to selected Store table
         }
 
         protected void SelectInvoiceButton_Click(object sender, EventArgs e)
         {
-
+            // select by InvoiceID in textbox and databind accessories table
         }
 
         protected void AdminBoardPanelButton_Click(object sender, EventArgs e)
@@ -222,7 +222,32 @@ namespace QuoteLogin
             LabelPanel.Visible = true;
             CommissionAccessoryPanel.Visible = false;
             AdminPanel.Visible = true;
-            BoardLabel.Text = "Admin Board -";
+            BoardLabel.Text = "Tally Board -";
+        }
+
+        protected void AdminEmpSelectDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // set SelectedEmpID and databind right column
+        }
+
+        protected void SetEmpActiveCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            // send 'Active' state to database and update
+        }
+
+        protected void EmployeeQuotasButton_Click(object sender, EventArgs e)
+        {
+            // databind right menu to selected employee
+        }
+
+        protected void EmployeeNumbersButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void EmployeeTotalsButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

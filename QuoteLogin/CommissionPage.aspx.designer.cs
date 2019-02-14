@@ -301,13 +301,13 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Panel AdminPanel;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// EmployeeQuotasButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.Button EmployeeQuotasButton;
         
         /// <summary>
         /// SetStoreQuotasButton control.
@@ -319,13 +319,40 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Button SetStoreQuotasButton;
         
         /// <summary>
-        /// Button1 control.
+        /// EmployeeNumbersButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button EmployeeNumbersButton;
+        
+        /// <summary>
+        /// EmployeeTotalsButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EmployeeTotalsButton;
+        
+        /// <summary>
+        /// AdminEmpSelectDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AdminEmpSelectDropdown;
+        
+        /// <summary>
+        /// SetEmpActiveCheckbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox SetEmpActiveCheckbox;
         
         /// <summary>
         /// DetailsView1 control.

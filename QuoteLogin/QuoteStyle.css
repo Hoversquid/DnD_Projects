@@ -180,6 +180,10 @@ a
     position: relative;
 }
 
+.EmpSelectDropdown {
+    text-align: center;
+}
+
 .SelectionMenuTable {
     width: 100%;
     height: 80px;
@@ -201,14 +205,36 @@ a
     position: relative;
 }
 
-
+.LeftAdminColumnMenu {
+    width: 32%;
+    float: left;
+    clear: left;
+    margin: 15px 15px 15px 6%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+.MenuCellTable {
+    height: 100px;
+    width: 240px;
+    float: right;
+    clear: right;
+    margin: 0px 0px 10px 0px;
+}
 .RightAdminColumnMenu {
     width: 50%;
+    height: 200px;
     float: right;
     clear: right;
     margin: 15px 6% 15px 15px;
 }
-
+.SelectionDetailView {
+}
+.PagingMenu {
+    height: 20px;
+    float: right;
+    clear: right;
+}
 .MenuPanel {
     margin-left: auto;
     margin-right: auto;
