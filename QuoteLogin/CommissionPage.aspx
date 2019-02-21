@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="CommissionPage.aspx.cs" Inherits="QuoteLogin.CommissionPage" %>
 
 <%@ Register Assembly="QuoteLogin" Namespace="ControlLibrary.Controls" TagPrefix="cstate" %>
+<!DOCTYPE html>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Master Page</title>
     <link rel="stylesheet" href="QuoteStyle.css" />
@@ -333,20 +335,12 @@
                                     <asp:TableCell />
                                     <asp:TableCell>
                                         <asp:Button ID="SetStoreQuotasButton" CssClass="TableFormButton" runat="server" Text="Store Quotas" OnClick="SetStoreQuotasButton_Click" />
+                                        
                                     </asp:TableCell></asp:TableRow><asp:TableRow>
-                                </asp:TableRow>
-                            </asp:Table>
-                            <asp:Table CssClass="MenuCellTable" CellPadding="0" runat="server">
-                                <asp:TableRow>
-                                    <asp:TableCell Width="18%">
-                                        <asp:Label runat="server" Text="Employee: " CssClass="DropdownLabel" Font-Bold="true" Font-Size="Large" />
-                                    </asp:TableCell><asp:TableCell Width="30%">
-                                        <asp:Button ID="EmployeeNumbersButton" CssClass="TableFormButton" runat="server" OnClick="EmployeeNumbersButton_Click" Text="Set Numbers" />
-                                    </asp:TableCell></asp:TableRow><asp:TableRow>
-                                    <asp:TableCell />
-                                    <asp:TableCell>
-                                        <asp:Button ID="EmployeeTotalsButton" CssClass="TableFormButton" runat="server" Text="Employee Totals" OnClick="EmployeeTotalsButton_Click"/>
-                                    </asp:TableCell></asp:TableRow><asp:TableRow>
+                                        <asp:TableCell />
+                                        <asp:TableCell>
+                                        <asp:Button ID="EmployeeNumbersButton" CssClass="TableFormButton" runat="server" Text="Employee Totals" OnClick="EmployeeTotalsButton_Click"/>
+                                            </asp:TableCell></asp:TableRow><asp:TableRow>
                                 </asp:TableRow>
                             </asp:Table>
                         </div>
@@ -400,6 +394,11 @@
                         <asp:ControlParameter ControlID="qcs" Name="StoreID" PropertyName="StoreID" Type="Int32" />
                     </SelectParameters>
                 </asp:SqlDataSource>
+                <asp:SqlDataSource ID="StoreQuotaDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:QuoteDBConnection %>' SelectCommand="SELECT [StoreQuotaRepairs], [StoreQuotaAccessories], [StoreQuotaTnDC], [StoreQuotaTnD], [StoreQuotaTotal], [StoreQuotaPO] FROM [StoreTotalTracker] WHERE [StoreID] = @StoreID">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="qcs" PropertyName="StoreID" Name="StoreID"></asp:ControlParameter>
+                    </SelectParameters>
+                </asp:SqlDataSource>
                 <asp:SqlDataSource ID="StoreSelfTracker" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="SELECT * FROM [StoreSelfTracker]" />
                 <asp:SqlDataSource ID="StoreDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="SELECT * FROM [Store_Locations]" />
                 <asp:SqlDataSource ID="StoreTotalsDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:QuoteDBConnection %>" SelectCommand="SELECT * FROM [StoreTotalTracker] WHERE (StoreID = @StoreID)">
@@ -442,6 +441,16 @@
                         <asp:ControlParameter ControlID="qcs" Name="StoreID" Type="Int32" DefaultValue="" PropertyName="StoreID" />
 
                     </InsertParameters>
+                </asp:SqlDataSource>
+                <asp:SqlDataSource ID="EmpQuoteDatSource" runat="server" ConnectionString='<%$ ConnectionStrings:QuoteDBConnection %>' SelectCommand="SELECT [AccessoriesQuota], [RepairsQuota], [TnDQuota], [TnDCQuota], [PreownedQuota] FROM [ActivitiesTracker] WHERE [EmpID] = @EmpID">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="qcs" PropertyName="EmpID" Name="EmpID"></asp:ControlParameter>
+                    </SelectParameters>
+                </asp:SqlDataSource>
+                <asp:SqlDataSource ID="EmpActualDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:QuoteDBConnection %>' SelectCommand="SELECT [RepairsDone], [AccessoriesDone], [TnDCDone], [TnDDone], [PreownedDone] FROM [ActivitiesTracker] WHERE [EmpID] = @EmpID">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="qcs" PropertyName="SelectedEmpID" Name="EmpID"></asp:ControlParameter>
+                    </SelectParameters>
                 </asp:SqlDataSource>
             </ContentTemplate>
         </asp:UpdatePanel>

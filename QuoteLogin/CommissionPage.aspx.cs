@@ -205,10 +205,7 @@ namespace QuoteLogin
             //SelectedAccessoryDetailView.InsertItem(true);
         }
 
-        protected void SetStoreQuotasButton_Click(object sender, EventArgs e)
-        {
-            // databind right menu to selected Store table
-        }
+        
 
         protected void SelectInvoiceButton_Click(object sender, EventArgs e)
         {
@@ -230,6 +227,11 @@ namespace QuoteLogin
             // set SelectedEmpID and databind right column
         }
 
+        protected void SetStoreQuotasButton_Click(object sender, EventArgs e)
+        {
+            // databind right menu to selected Store table, StoreQuotaDataSource
+        }
+
         protected void SetEmpActiveCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             // send 'Active' state to database and update
@@ -237,17 +239,12 @@ namespace QuoteLogin
 
         protected void EmployeeQuotasButton_Click(object sender, EventArgs e)
         {
-            // databind right menu to selected employee
+            // databind right menu to selected employee, EmpQuoteDataSource
         }
 
         protected void EmployeeNumbersButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void EmployeeTotalsButton_Click(object sender, EventArgs e)
-        {
-
+            // databind right nemu to employee actual numbers
         }
     }
 }

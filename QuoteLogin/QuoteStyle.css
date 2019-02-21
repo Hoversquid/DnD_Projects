@@ -207,6 +207,7 @@ a
 
 .LeftAdminColumnMenu {
     width: 32%;
+    height: 200px;
     float: left;
     clear: left;
     margin: 15px 15px 15px 6%;
@@ -215,7 +216,7 @@ a
     left: 0px;
 }
 .MenuCellTable {
-    height: 100px;
+    height: 200px;
     width: 240px;
     float: right;
     clear: right;
@@ -223,12 +224,13 @@ a
 }
 .RightAdminColumnMenu {
     width: 50%;
-    height: 200px;
+    height: 220px;
     float: right;
     clear: right;
     margin: 15px 6% 15px 15px;
 }
 .SelectionDetailView {
+    height: 180px;
 }
 .PagingMenu {
     height: 20px;

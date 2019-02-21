@@ -328,15 +328,6 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.Button EmployeeNumbersButton;
         
         /// <summary>
-        /// EmployeeTotalsButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EmployeeTotalsButton;
-        
-        /// <summary>
         /// AdminEmpSelectDropdown control.
         /// </summary>
         /// <remarks>
@@ -409,6 +400,15 @@ namespace QuoteLogin {
         protected global::System.Web.UI.WebControls.SqlDataSource ComissionDataSource;
         
         /// <summary>
+        /// StoreQuotaDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource StoreQuotaDataSource;
+        
+        /// <summary>
         /// StoreSelfTracker control.
         /// </summary>
         /// <remarks>
@@ -461,5 +461,23 @@ namespace QuoteLogin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource StoreSelfTrackerDataSource;
+        
+        /// <summary>
+        /// EmpQuoteDatSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource EmpQuoteDatSource;
+        
+        /// <summary>
+        /// EmpActualDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource EmpActualDataSource;
     }
 }
